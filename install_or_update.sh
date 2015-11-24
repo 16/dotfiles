@@ -12,6 +12,10 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 	git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
+# Install scripts like tmux-vim-select-pane
+echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
+stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
+
 # Make a symlink in $HOME to each of the .dotfiles in stows/
 echo Installing dotfiles.
 stow --override=".*" --restow --target=$HOME --dir="$DOTFILES_DIR" stows
