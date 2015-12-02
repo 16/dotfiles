@@ -7,9 +7,17 @@ call vundle#begin()
 
 Plugin 'tpope/vim-sensible'
 Plugin 'rstacruz/vim-opinion'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 filetype plugin indent on
+
+" BASE16 Color switching
+" ----------------------
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 "" Now, personnal settings
 " Making the clipboard work between iTerm2, and vim
