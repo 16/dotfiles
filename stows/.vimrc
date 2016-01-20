@@ -1,5 +1,6 @@
-"" Starter Pack with vim-opinion installed with Vundle
-"" and Plugins
+" Starter Pack with vim-opinion installed with Vundle
+" and Plugins
+" ---------------------------------------------------
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,9 +9,21 @@ call vundle#begin()
 Plugin 'tpope/vim-sensible'
 Plugin 'rstacruz/vim-opinion'
 Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
+
+
+" BASICS
+" ------
+" Making the clipboard work between iTerm2, and vim
+set clipboard=unnamed
+
+" Explicitly set encoding
+set encoding=utf-8
+set termencoding=utf-8
+
 
 " BASE16 Color switching
 " ----------------------
@@ -19,14 +32,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-"" Now, personnal settings
-" Making the clipboard work between iTerm2, and vim
-set clipboard=unnamed
-
-" Explicitly set encoding
-set encoding=utf-8
-set termencoding=utf-8
-  
   
 " SPLITS
 " ------
@@ -45,4 +50,10 @@ set formatoptions=1
 set wrap
 set linebreak
 set nolist
+
+" AIRLINE
+" -------
+let g:airline_powerline_fonts = 1
+" Automatically displays all buffers when there's only one tab opened.
+let g:airline#extensions#tabline#enabled = 1
 
