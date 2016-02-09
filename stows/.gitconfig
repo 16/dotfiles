@@ -3,3 +3,5 @@
 [user]
 	name = Fabrice Luraine
 	email = 16@asciiland.net
+[push]
+	default = simple
