@@ -59,3 +59,8 @@ let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab opened.
 let g:airline#extensions#tabline#enabled = 1
 
+" NeoVim specifics
+"
+if has('nvim')
+  let g:python_host_prog = '/usr/local/bin/python'
+endif
