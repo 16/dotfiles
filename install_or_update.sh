@@ -32,3 +32,17 @@ if [ -d "$DOTFILES_DIR/local_$(hostname -s)" ]; then
 else
 	echo "No local overrides found ($DOTFILES_DIR/local_$(hostname -s))"
 fi
+
+# In order to use vim existing config files with NeoVim
+
+if hash nvim 2>/dev/null; then
+  if [ ! -d "$HOME/.config" ]; then
+    mkdir -p "$HOME/.config"
+  fi
+  if [ ! -d "$HOME/.config/nvim" ]; then
+    ln -s ~/.vim ~/.config/nvim
+  fi
+  if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
+    ln -s ~/.vimrc ~/.config/nvim/init.vim
+  fi
+fi

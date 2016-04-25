@@ -1,5 +1,5 @@
 [core]
-	editor = /usr/bin/env vim
+	editor = /usr/bin/env nvim
 [user]
 	name = Fabrice Luraine
 	email = 16@asciiland.net

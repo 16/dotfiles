@@ -42,7 +42,9 @@ set splitbelow
 set splitright
 
 " To resize vim splits in tmux
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " SOFT WRAP
 " ---------
