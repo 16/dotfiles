@@ -60,7 +60,22 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " NeoVim specifics
-"
+" ----------------
 if has('nvim')
   let g:python_host_prog = '/usr/local/bin/python'
 endif
+
+" LEADER mappings
+" ---------------
+
+let mapleader = ","
+
+" Delete current buffer without closing the window
+nnoremap <Leader>q :Bdelete<CR>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
