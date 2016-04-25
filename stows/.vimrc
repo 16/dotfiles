@@ -21,7 +21,9 @@ filetype plugin indent on
 set clipboard=unnamed
 
 " Explicitly set encoding
-set encoding=utf-8
+if !has('nvim')
+  set encoding=utf-8
+endif
 set termencoding=utf-8
 
 
