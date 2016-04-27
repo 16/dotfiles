@@ -6,10 +6,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Basics
 Plugin 'tpope/vim-sensible'
 Plugin 'rstacruz/vim-opinion'
 Plugin 'chriskempson/base16-vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,6 +59,7 @@ set nolist
 
 " AIRLINE
 " -------
+let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab opened.
 let g:airline#extensions#tabline#enabled = 1
