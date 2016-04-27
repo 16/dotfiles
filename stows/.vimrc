@@ -12,6 +12,7 @@ Plugin 'rstacruz/vim-opinion'
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype plugin indent on
