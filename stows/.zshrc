@@ -97,3 +97,5 @@ DEFAULT_USER="fabrice"
 # for Tmux projects
 # function new-tmux-from-dir-name { tmux new-session -As `basename $PWD` } 
 # alias tnew="new-tmux-from-dir-name"
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

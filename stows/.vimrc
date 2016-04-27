@@ -13,6 +13,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'junegunn/fzf'
 
 call vundle#end()
 filetype plugin indent on
@@ -71,6 +72,10 @@ if has('nvim')
   let g:python_host_prog = '/usr/local/bin/python'
 endif
 
+" FZF
+" ---
+set rtp+=/usr/local/opt/fzf
+
 " LEADER mappings
 " ---------------
 
@@ -85,3 +90,5 @@ nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
 
+" FZF
+nnoremap <leader>f :FZF<cr>
