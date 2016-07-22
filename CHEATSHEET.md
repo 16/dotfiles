@@ -18,6 +18,9 @@ Vim
 " FZF
   <leader>f 
 
+" Goyo
+  <leader>z
+
 
 Terminal
 --------
