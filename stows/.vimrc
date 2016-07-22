@@ -14,6 +14,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -92,3 +94,29 @@ nmap <leader>h :bprevious<CR>
 
 " FZF
 nnoremap <leader>f :FZF<cr>
+
+" Goyo
+nnoremap <silent> <leader>z :Goyo<cr>
+
+" Writing environment
+" -------------------
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 0
+
+function! s:goyo_enter()
+  set scrolloff=999
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  set scrolloff=5
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Highlight current line
+let g:conoline_auto_enable = 1
+let g:conoline_use_colorscheme_default_normal=1
+let g:conoline_use_colorscheme_default_insert=1
