@@ -16,6 +16,9 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'reedes/vim-pencil'
 
 call vundle#end()
 filetype plugin indent on
@@ -100,6 +103,17 @@ nnoremap <silent> <leader>z :Goyo<cr>
 
 " Writing environment
 " -------------------
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#spell#enabled = 0
+
+let g:pencil#wrapModeDefault = 'soft'
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
 " Number of preceding/following paragraphs to include (default: 0)
 let g:limelight_paragraph_span = 0
 
