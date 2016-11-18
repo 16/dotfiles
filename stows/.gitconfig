@@ -5,3 +5,5 @@
 	email = 16@asciiland.net
 [push]
 	default = simple
+[color]
+	ui = true
