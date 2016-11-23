@@ -89,7 +89,7 @@ set rtp+=/usr/local/opt/fzf
 let mapleader = ","
 
 " Delete current buffer without closing the window
-nnoremap <Leader>q :Bdelete<CR>
+nnoremap <Leader>q :bdelete<CR>
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
