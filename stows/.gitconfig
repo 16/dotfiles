@@ -7,3 +7,26 @@
 	default = simple
 [color]
 	ui = true
+[alias]
+  # list all aliases
+  la = "!git config -l | grep alias | cut -c 7-"
+
+  # log
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  
+  # show modified files in last commit
+  last = "!git ll -1"
+  
+  # show a diff last commit
+  dlast = diff --cached HEAD^
+  
+  # find a file path in codebase
+  f = "!git ls-files | grep -i"
+
+  # shortcuts
+  st = status -v
+  ci = commit -v
+  cia = commit -av
+  pullr = pull --rebase
+
