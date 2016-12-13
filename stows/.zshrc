@@ -89,6 +89,16 @@ source $ZSH/oh-my-zsh.sh
 # <http://szarapka.com/zshohmyzsh/>
 DEFAULT_USER="fabrice"
 
+# Enable bash completion compatibility
+autoload bashcompinit
+bashcompinit
+
+# ZSH Completions installed with Homebrew
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
+autoload -U compinit
+compinit
+
 # -- TMUX --
 # For fixing colors with tmux
 # export TERM="screen-256color"
