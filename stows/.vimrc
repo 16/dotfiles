@@ -7,7 +7,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Basics
-Plugin 'tpope/vim-sensible'
+if !has('nvim')
+  Plugin 'tpope/vim-sensible'
+endif
 Plugin 'rstacruz/vim-opinion'
 Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
