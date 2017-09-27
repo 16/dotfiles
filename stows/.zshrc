@@ -1,3 +1,8 @@
+# http://zsh.sourceforge.net/Guide/zshguide02.html#l9
+if [[ ! -o norcs ]]; then
+  source ~/.profile
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
