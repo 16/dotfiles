@@ -82,6 +82,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias apgs="apg -m 8 -x 12 -s"
+alias ll="exa -l --git"
+alias la="exa -la --git"
+alias lt="exa -T -L 2"
 
 # Default User
 # You'll want to add in a DEFAULT_USER, set it to whatever your system username is.
