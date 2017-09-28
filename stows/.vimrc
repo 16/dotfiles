@@ -26,6 +26,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'slim-template/vim-slim.git'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'fishbullet/deoplete-ruby'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
@@ -169,3 +170,18 @@ augroup omnifuncs
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup end
+
+"
+" NERD Commenter options
+" ========================
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'both'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1

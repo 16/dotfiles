@@ -21,6 +21,12 @@ Vim
 " Goyo
   <leader>z
 
+" Nerd Commenter
+  <leader>cc Comment current line or selected lines
+  <leader>cu Uncomment
+  <leader>cm Minimal : Comments the selected lines using one set of multipart delimiters if possible.
+  <leader>space Toggle
+
 
 Terminal
 --------
