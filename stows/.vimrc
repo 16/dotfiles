@@ -14,15 +14,16 @@ Plug 'christoomey/vim-tmux-navigator' " fzf installed with Homebrew
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'reedes/vim-pencil'
-Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
 Plug 'scrooloose/nerdcommenter'
-Plug 'ap/vim-css-color'
 Plug 'godlygeek/tabular'
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'lepture/vim-jinja' " for nunjucks templates
 call plug#end()
 
 
