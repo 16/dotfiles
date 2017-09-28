@@ -27,6 +27,7 @@ Plugin 'slim-template/vim-slim.git'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'fishbullet/deoplete-ruby'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'ap/vim-css-color'
 
 call vundle#end()
 filetype plugin indent on
