@@ -27,6 +27,11 @@ Vim
   <leader>cm Minimal : Comments the selected lines using one set of multipart delimiters if possible.
   <leader>space Toggle
 
+" Tabular
+  <leader>a= (:Tab /=) Align on = separator
+  <leader>a: (:Tab /:) Align on : separator
+  or see <http://vimcasts.org/episodes/aligning-text-with-tabular-vim/>
+
 
 Terminal
 --------

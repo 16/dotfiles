@@ -28,6 +28,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'fishbullet/deoplete-ruby'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ap/vim-css-color'
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 filetype plugin indent on
@@ -186,3 +187,13 @@ let g:NERDDefaultAlign = 'both'
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+"
+" TABULAR
+" =======
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:<CR>
+  vmap <Leader>a: :Tabularize /:<CR>
+endif
