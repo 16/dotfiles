@@ -16,10 +16,11 @@ fi
 echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
 stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
 
-# Install Vundle for Vim
-if [ ! -d "$HOME/.vim/bundle" ]; then
-	echo Installing Vundle vim plugin manager
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install vim-plug
+if [ ! -d "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
+  echo "Install vim-plug"
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Make a symlink in $HOME to each of the .dotfiles in stows/

@@ -2,36 +2,28 @@
 " and Plugins
 " ---------------------------------------------------
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" Basics
-if !has('nvim')
-  Plugin 'tpope/vim-sensible'
-endif
-Plugin 'rstacruz/vim-opinion'
-Plugin 'chriskempson/base16-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'reedes/vim-pencil'
-Plugin 'mattn/emmet-vim'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'fishbullet/deoplete-ruby'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ap/vim-css-color'
-Plugin 'godlygeek/tabular'
-
-call vundle#end()
-filetype plugin indent on
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'tpope/vim-sensible', !has('nvim') ? {} : { 'on': [] }
+Plug 'rstacruz/vim-opinion'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'christoomey/vim-tmux-navigator' " fzf installed with Homebrew
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+Plug 'reedes/vim-pencil'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fishbullet/deoplete-ruby'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ap/vim-css-color'
+Plug 'godlygeek/tabular'
+call plug#end()
 
 
 " BASICS
@@ -45,6 +37,8 @@ if !has('nvim')
 endif
 set termencoding=utf-8
 
+" Highlight current line
+set cursorline
 
 " BASE16 Color switching
 " ----------------------
@@ -53,7 +47,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-  
 " SPLITS
 " ------
 " Open new split panes to right and bottom, which feels more natural than
@@ -107,6 +100,9 @@ nmap <leader>h :bprevious<CR>
 
 " FZF
 nnoremap <leader>f :FZF<cr>
+nnoremap <leader>g :GFiles<cr>
+nnoremap <leader>b :Buffers<cr>
+
 
 " Goyo
 nnoremap <silent> <leader>z :Goyo<cr>
@@ -124,6 +120,7 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
+let g:limelight_default_coefficient = 0.4
 " Number of preceding/following paragraphs to include (default: 0)
 let g:limelight_paragraph_span = 0
 
@@ -144,10 +141,6 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Highlight current line
-let g:conoline_auto_enable = 1
-let g:conoline_use_colorscheme_default_normal=1
-let g:conoline_use_colorscheme_default_insert=1
 
 "
 " Deoplete Omni Completion

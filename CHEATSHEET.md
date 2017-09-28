@@ -16,7 +16,9 @@ Vim
   <leader>h 
 
 " FZF
-  <leader>f 
+  <leader>f :Files
+  <leader>g :GFiles (git ls-files)
+  <leader>b :Buffers
 
 " Goyo
   <leader>z
