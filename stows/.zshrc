@@ -108,6 +108,9 @@ fpath=($(brew --prefix)/share/zsh-completions $fpath)
 autoload -U compinit
 compinit
 
+# Other ZSH completions
+source ~/.tldr.complete
+
 # -- TMUX --
 # For fixing colors with tmux
 # export TERM="screen-256color"
