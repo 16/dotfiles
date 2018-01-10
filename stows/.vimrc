@@ -11,6 +11,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator' " fzf installed with Homebrew
+Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'Lokaltog/neoranger', { 'branch': 'develop' } " using Ranger as a file drawer
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -57,10 +58,46 @@ endif
 set splitbelow
 set splitright
 
+if has('nvim')
+  highlight TermCursor ctermfg=red guifg=red
+endif
+
 " To resize vim splits in tmux
 if !has('nvim')
   set ttymouse=xterm2
 endif
+
+" Zooming with Maximizer
+let g:maximizer_set_default_mapping = 0
+nmap <silent><Leader>m :MaximizerToggle<CR>
+
+" Terminal settings
+" -----------------
+" (NeoVim)
+" Source: <https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9>
+tnoremap <Leader><ESC> <C-\><C-n>
+
+" Window navigation function
+" Make ctrl-h/j/k/l move between windows and auto-insert in terminals
+func! s:mapMoveToWindowInDirection(direction)
+    func! s:maybeInsertMode(direction)
+        stopinsert
+        execute "wincmd" a:direction
+
+        if &buftype == 'terminal'
+            startinsert!
+        endif
+    endfunc
+
+    execute "tnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ "<C-\\><C-n>"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+    execute "nnoremap" "<silent>" "<C-" . a:direction . ">"
+                \ ":call <SID>maybeInsertMode(\"" . a:direction . "\")<CR>"
+endfunc
+for dir in ["h", "j", "l", "k"]
+  call s:mapMoveToWindowInDirection(dir)
+endfor
 
 " SOFT WRAP
 " ---------
@@ -133,14 +170,14 @@ function! s:goyo_enter()
   silent !tmux set status off
   silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   set scrolloff=999
-  Limelight
+  "Limelight
 endfunction
 
 function! s:goyo_leave()
   silent !tmux set status on
   silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   set scrolloff=5
-  Limelight!
+  "Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()

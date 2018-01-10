@@ -15,6 +15,12 @@ Vim
 " Move to the previous buffer
   <leader>h 
 
+" Zoom in/out current split (with maximizer plugin)
+  <leader>m
+
+" In terminal, get out insert mode (back to normal)
+  <leader><esc>
+
 " FZF
   <leader>f :Files
   <leader>g :GFiles (git ls-files)
