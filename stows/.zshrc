@@ -111,6 +111,9 @@ compinit
 # Other ZSH completions
 source ~/.tldr.complete
 
+# FASD (https://github.com/clvv/fasd)
+eval "$(fasd --init auto)"
+
 # -- TMUX --
 # For fixing colors with tmux
 # export TERM="screen-256color"
