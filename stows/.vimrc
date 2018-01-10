@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator' " fzf installed with Homebrew
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'Lokaltog/neoranger', { 'branch': 'develop' } " using Ranger as a file drawer
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
@@ -103,6 +104,9 @@ nmap <leader>h :bprevious<CR>
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
+
+" Open ranger in current working directory
+nnoremap <silent> <Leader>r :Ranger<CR>
 
 
 " Goyo

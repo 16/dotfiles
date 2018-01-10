@@ -20,6 +20,9 @@ Vim
   <leader>g :GFiles (git ls-files)
   <leader>b :Buffers
 
+" Ranger (file drawer)
+  <leader>r :Ranger (ouvrir Ranger dans un buffer terminal neovim) 
+
 " Goyo
   <leader>z
 
