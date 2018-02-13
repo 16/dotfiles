@@ -13,7 +13,3 @@ fi
 if [ -d $(brew --prefix homebrew/php/php56)/bin ] ; then
   export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 fi
-
-if [ -n "$PS1" ]; then # if statement guards adding these helpers for non-interative shells
-  eval "$(~/dotfiles/base16-shell/profile_helper.sh)"
-fi

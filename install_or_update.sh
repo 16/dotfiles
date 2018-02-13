@@ -20,16 +20,16 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 	git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 fi
 
-# Install scripts like tmux-vim-select-pane
-echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
-stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
-
 # Install vim-plug
 if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
   echo "Install vim-plug"
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# Install scripts like tmux-vim-select-pane
+echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
+stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
 
 # Make a symlink in $HOME to each of the .dotfiles in stows/
 echo Installing dotfiles.
@@ -43,7 +43,7 @@ else
 fi
 
 # In order to use vim existing config files with NeoVim
-
+echo Create symlinks in order to use existing vim config files with NeoVim 
 if hash nvim 2>/dev/null; then
   if [ ! -d "$HOME/.config" ]; then
     mkdir -p "$HOME/.config"
@@ -54,4 +54,9 @@ if hash nvim 2>/dev/null; then
   if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
     ln -s ~/.vimrc ~/.config/nvim/init.vim
   fi
+fi
+
+echo Create a symlink to base16-shell
+if [ ! -d "$HOME/.config/base16-shell" ]; then
+  ln -s "$DOTFILES_DIR/base16-shell" "$HOME/.config/base16-shell"
 fi

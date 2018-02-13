@@ -3,14 +3,10 @@ if [[ ! -o norcs ]]; then
   source ~/.profile
 fi
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export BREW_HOME=$(brew --prefix)
+export ZPLUG_HOME=$BREW_HOME/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-# zplug check returns true if all packages are installed
-# Therefore, when it returns false, run zplug install
-if ! zplug check; then
-    zplug install
-fi
 # Async for zsh, used by pure
 zplug "mafredri/zsh-async", from:github, defer:0
 # Load completion library for those sweet [tab] squares
@@ -22,16 +18,22 @@ zplug "laurenkt/zsh-vimto"
 # Theme!
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
+# base16
+zplug "~/.config/base16-shell", use:"*.zsh", from:local
+
+# Homebrew zsh completions
+fpath=($BREW_HOME/share/zsh/site-functions $fpath)
+
 # zplug managed itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-      echo; zplug install
-  fi
-fi
+# if ! zplug check --verbose; then
+#   printf "Install? [y/N]: "
+#   if read -q; then
+#       echo; zplug install
+#   fi
+# fi
 
 zplug load
 
@@ -51,12 +53,6 @@ DEFAULT_USER="fabrice"
 # Enable bash completion compatibility
 autoload bashcompinit
 bashcompinit
-
-# ZSH Completions installed with Homebrew
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
-autoload -U compinit
-compinit
 
 # Other ZSH completions
 source ~/.tldr.complete
