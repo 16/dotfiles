@@ -3,89 +3,41 @@ if [[ ! -o norcs ]]; then
   source ~/.profile
 fi
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export BREW_HOME=$(brew --prefix)
+export ZPLUG_HOME=$BREW_HOME/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="agnoster"
-# ZSH_THEME="cloud"
-ZSH_THEME="avit"
+# Async for zsh, used by pure
+zplug "mafredri/zsh-async", from:github, defer:0
+# Load completion library for those sweet [tab] squares
+zplug "lib/completion", from:oh-my-zsh
+zplug "plugins/brew",   from:oh-my-zsh
+zplug "plugins/gem",   from:oh-my-zsh
+zplug "plugins/osx",   from:oh-my-zsh
+zplug "laurenkt/zsh-vimto"
+# Theme!
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# base16
+zplug "~/.config/base16-shell", use:"*.zsh", from:local
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# Homebrew zsh completions
+fpath=($BREW_HOME/share/zsh/site-functions $fpath)
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zplug managed itself
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(brew gem osx node)
-
-# User configuration
-
-# $PATH is now set in my .zshenv
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/texbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
+# Install plugins if there are plugins that have not been installed
+# if ! zplug check --verbose; then
+#   printf "Install? [y/N]: "
+#   if read -q; then
+#       echo; zplug install
+#   fi
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+zplug load
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Personnal aliases
 alias apgs="apg -m 8 -x 12 -s"
 alias ll="exa -l --git"
 alias la="exa -la --git"
@@ -101,12 +53,6 @@ DEFAULT_USER="fabrice"
 # Enable bash completion compatibility
 autoload bashcompinit
 bashcompinit
-
-# ZSH Completions installed with Homebrew
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fpath=($(brew --prefix)/share/zsh-completions $fpath)
-autoload -U compinit
-compinit
 
 # Other ZSH completions
 source ~/.tldr.complete
