@@ -10,10 +10,8 @@ source $ZPLUG_HOME/init.zsh
 # Async for zsh, used by pure
 zplug "mafredri/zsh-async", from:github, defer:0
 # Load completion library for those sweet [tab] squares
-zplug "lib/completion", from:oh-my-zsh
-zplug "plugins/brew",   from:oh-my-zsh
-zplug "plugins/gem",   from:oh-my-zsh
-zplug "plugins/osx",   from:oh-my-zsh
+zplug "modules/completion", from:prezto
+zplug "modules/homebrew",   from:prezto
 zplug "laurenkt/zsh-vimto"
 # Theme!
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
