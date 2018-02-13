@@ -1,0 +1,9 @@
+[settings]
+file = ~/OwnCloud/Todo/todo.txt
+archive = ~/OwnCloud/Todo/done.txt
+auto-save = True
+show-toolbar = True
+show-filter-panel = True
+enable-borders = True
+enable-word-wrap = True
+colorscheme = base16-dark-256
