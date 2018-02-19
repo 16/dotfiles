@@ -151,6 +151,10 @@ nnoremap <silent> <leader>z :Goyo<cr>
 
 " Writing environment
 " -------------------
+
+" open .txt files as markdown
+autocmd BufRead *.md,*.mkd,*.markdown,*.txt set ft=markdown
+
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#spell#enabled = 0
