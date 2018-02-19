@@ -1,11 +1,6 @@
-# http://zsh.sourceforge.net/Guide/zshguide02.html#l9
-if [[ ! -o norcs ]]; then
-  source ~/.profile
-fi
-
-export BREW_HOME=$(brew --prefix)
 export ZPLUG_HOME=$BREW_HOME/opt/zplug
 source $ZPLUG_HOME/init.zsh
+
 
 # Async for zsh, used by pure
 zplug "mafredri/zsh-async", from:github, defer:0
