@@ -7,6 +7,8 @@ zplug "mafredri/zsh-async", from:github, defer:0
 # Load completion library for those sweet [tab] squares
 zplug "modules/completion", from:prezto
 zplug "modules/homebrew",   from:prezto
+zplug "plugins/z", from:oh-my-zsh
+zplug "andrewferrier/fzf-z"
 zplug "laurenkt/zsh-vimto"
 # Theme!
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
@@ -51,7 +53,7 @@ bashcompinit
 source ~/.tldr.complete
 
 # FASD (https://github.com/clvv/fasd)
-eval "$(fasd --init auto)"
+# eval "$(fasd --init auto)"
 
 # -- TMUX --
 # For fixing colors with tmux
@@ -62,6 +64,6 @@ eval "$(fasd --init auto)"
 function new-tmux-from-dir-name { tmux new-session -As `basename $PWD` } 
 alias tnew="new-tmux-from-dir-name"
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
