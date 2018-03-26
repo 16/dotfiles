@@ -27,6 +27,8 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'lepture/vim-jinja' " for nunjucks templates
+Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
+Plug 'slashmili/alchemist.vim' " Elixir integration
 call plug#end()
 
 
