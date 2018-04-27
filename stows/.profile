@@ -12,8 +12,11 @@ if which rbenv &>/dev/null ; then
   eval "$(rbenv init - --no-rehash)"
 fi
 
-# $(brew --prefix homebrew/php/php56)
-php56_path="$BREW_HOME/opt/php56"
+php56_path="$BREW_HOME/opt/php@5.6"
 if [ -d $php56_path/bin ] ; then
   export PATH="$php56_path/bin:$PATH"
 fi
+if [ -d $php56_path/sbin ] ; then
+  export PATH="$php56_path/sbin:$PATH"
+fi
+
