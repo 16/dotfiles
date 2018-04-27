@@ -20,3 +20,7 @@ if [ -d $php56_path/sbin ] ; then
   export PATH="$php56_path/sbin:$PATH"
 fi
 
+sqlite3_path="$BREW_HOME/opt/sqlite"
+if [ -d $sqlite3_path/bin ] ; then
+  export PATH="$sqlite3_path/bin:$PATH"
+fi
