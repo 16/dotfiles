@@ -140,6 +140,11 @@ nmap <leader>l :bnext<CR>
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
 
+" Toggle paste mode on and off
+" (see: http://vimcasts.org/episodes/using-vims-paste-mode-with-the-system-paste-command/)
+" (Use C-c to exit paste mode in insert mode)
+map <leader>pp :setlocal paste!<cr>
+
 " FZF
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>g :GFiles<cr>
