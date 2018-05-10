@@ -9,7 +9,6 @@ Plug 'rstacruz/vim-opinion'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator' 
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fzf installed with Homebrew
