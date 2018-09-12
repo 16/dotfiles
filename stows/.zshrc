@@ -6,6 +6,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "mafredri/zsh-async", from:github, defer:0
 # Load completion library for those sweet [tab] squares
 zplug "modules/completion", from:prezto
+zplug "lukechilds/zsh-better-npm-completion", defer:2
 zplug "modules/homebrew",   from:prezto
 zplug "plugins/z", from:oh-my-zsh
 zplug "andrewferrier/fzf-z"
@@ -51,6 +52,11 @@ bashcompinit
 
 # Other ZSH completions
 source ~/.tldr.complete
+
+# load rbenv if available
+if which rbenv &>/dev/null ; then
+  eval "$(rbenv init - --no-rehash)"
+fi
 
 # FASD (https://github.com/clvv/fasd)
 # eval "$(fasd --init auto)"
