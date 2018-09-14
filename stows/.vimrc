@@ -114,6 +114,7 @@ let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab opened.
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_x = '%{PencilMode()}'
 
 " NeoVim specifics
 " ----------------
@@ -160,11 +161,13 @@ nnoremap <silent> <leader>z :Goyo<cr>
 " -------------------
 
 " open .txt files as markdown
-autocmd BufRead *.md,*.mkd,*.markdown,*.txt set ft=markdown
+autocmd BufRead *.txt set ft=markdown
 
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#handled = ["pandoc", "markdown", "extra"]
 let g:pandoc#filetypes#pandoc_markdown = 0
-let g:pandoc#spell#enabled = 0
+" let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#modules#disabled = ["bibliographies", "spell"]
+let g:pandoc#keyboard#sections#header_style = 's' " enables setext headers for level 1 and 2 headers
 
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
@@ -172,6 +175,7 @@ augroup pencil
   autocmd FileType markdown,mkd call pencil#init()
   autocmd FileType text         call pencil#init()
 augroup END
+let g:pencil#textwidth = 79
 
 let g:limelight_default_coefficient = 0.4
 " Number of preceding/following paragraphs to include (default: 0)
