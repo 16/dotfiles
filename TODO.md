@@ -1,6 +1,7 @@
 TODO
 ====
 
+- installer [pyenv](https://github.com/pyenv/pyenv) pour éviter des problèmes avec les multiples versions de python
 - vim: 
   - <https://github.com/sheerun/vim-polyglot> plutôt que pleins de plugins pour le support de plein de languages
   - <https://github.com/editorconfig/editorconfig-vim>
