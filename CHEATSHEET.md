@@ -7,44 +7,55 @@ Vim
 
 
 " Delete current buffer without closing the window
-  <Leader>q
+
+    <Leader>q
 
 " Move to the next buffer
-  <leader>l
+
+    <leader>l
 
 " Move to the previous buffer
-  <leader>h 
+
+    <leader>h 
 
 " Zoom in/out current split (with maximizer plugin)
-  <leader>m
+
+    <leader>m
 
 " In terminal, get out insert mode (back to normal)
-  <leader><esc>
+
+    <leader><esc>
 
 " FZF
-  <leader>f :Files
-  <leader>g :GFiles (git ls-files)
-  <leader>b :Buffers
+
+    <leader>f :Files
+    <leader>g :GFiles (git ls-files)
+    <leader>b :Buffers
 
 " Ranger (file drawer)
-  <leader>r :Ranger (ouvrir Ranger dans un buffer terminal neovim) 
+
+    <leader>r :Ranger (ouvrir Ranger dans un buffer terminal neovim) 
 
 " Goyo
-  <leader>z
+
+    <leader>z
 
 " Nerd Commenter
-  <leader>cc Comment current line or selected lines
-  <leader>cu Uncomment
-  <leader>cm Minimal : Comments the selected lines using one set of multipart delimiters if possible.
-  <leader>space Toggle
+
+    <leader>cc Comment current line or selected lines
+    <leader>cu Uncomment
+    <leader>cm Minimal : Comments the selected lines using one set of multipart delimiters if possible.
+    <leader>space Toggle
 
 " Tabular
-  <leader>a= (:Tab /=) Align on = separator
-  <leader>a: (:Tab /:) Align on : separator
-  or see <http://vimcasts.org/episodes/aligning-text-with-tabular-vim/>
+
+    <leader>a= (:Tab /=) Align on = separator
+    <leader>a: (:Tab /:) Align on : separator
+
+or see <http://vimcasts.org/episodes/aligning-text-with-tabular-vim/>
 
 
 Terminal
 --------
 
-  vim $(fzf) #open a file in vim with fzf
+    vim $(fzf) #open a file in vim with fzf
