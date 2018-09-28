@@ -159,6 +159,7 @@ map <leader>pp :setlocal paste!<cr>
 nnoremap <leader>f :FZF<cr>
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>s :Rg<cr>
 
 " Open ranger in current working directory
 nnoremap <silent> <Leader>r :Ranger<CR>
