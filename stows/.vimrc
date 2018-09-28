@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible', !has('nvim') ? {} : { 'on': [] }
 Plug 'rstacruz/vim-opinion'
 Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox', ($TERM_PROGRAM == 'Apple_Terminal') ? {} : { 'on': [] }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator' 
@@ -45,11 +46,19 @@ set termencoding=utf-8
 " Highlight current line
 set cursorline
 
-" BASE16 Color switching
-" ----------------------
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+if ($TERM_PROGRAM == 'Apple_Terminal')
+  " for osx terminal.app
+  colorscheme gruvbox
+  set background=dark
+  let airline_theme='gruvbox'
+else
+  " BASE16 Color switching
+  " ----------------------
+  if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+    let airline_theme='base16'
+  endif
 endif
 
 " SPLITS
@@ -110,7 +119,8 @@ set nolist
 
 " AIRLINE
 " -------
-let g:airline_theme='base16'
+set noshowmode " because mode info is shown in Airline
+let g:airline_theme=airline_theme
 let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab opened.
 let g:airline#extensions#tabline#enabled = 1

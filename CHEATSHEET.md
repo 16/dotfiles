@@ -32,6 +32,9 @@ Vim
     <leader>g :GFiles (git ls-files)
     <leader>b :Buffers
 
+  (multi)select :
+    toggle with <TAB>
+
 " Ranger (file drawer)
 
     <leader>r :Ranger (ouvrir Ranger dans un buffer terminal neovim) 

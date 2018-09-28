@@ -12,9 +12,29 @@ NValt dans mon shell
 
 - `ag` pour la recherche de fichiers <https://statico.github.io/vim3.html>
 
+Terminal
+--------
+
+- basculer progressivement sur le terminal d'osx : il est plus réactif
+- <del>utiliser [gruvbox](https://github.com/morhetz/gruvbox) de manière plus complète:</del>
+  non, c'est compliqué et ça marchera pas avec urxvt… continuer avec base16 et les themes gruv
+  - ajouter des raccourcis pour switcher black/light pour mes besoins en ascii,
+    mais aussi quand j'utilise Goyo
+  - étendre l'usage de ce thème : <https://github.com/morhetz/gruvbox-contrib>
+    à noter le support complet pour i3 ! <https://github.com/a-schaefers/i3-wm-gruvbox-theme>
+
+
+Vim
+---
+
+- <del>passer à [lightline](https://github.com/itchyny/lightline.vim) : plus léger, plus simple que Airline</del>
+  pas génial finalement (besoin d'un autre plugin pour la barre des buffers
+
 Writing Env
 -----------
 
+- installer <https://github.com/itspriddle/vim-marked> pour lancer facilement Marked pour la preview
+  des fichiers markdown
 - Tester <https://github.com/amix/vim-zenroom2>
 
 
