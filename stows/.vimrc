@@ -124,6 +124,8 @@ let g:airline_theme=airline_theme
 let g:airline_powerline_fonts = 1
 " Automatically displays all buffers when there's only one tab opened.
 let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_section_x = '%{PencilMode()}'
 
 " NeoVim specifics
