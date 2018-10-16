@@ -58,6 +58,18 @@ if which rbenv &>/dev/null ; then
   eval "$(rbenv init - --no-rehash)"
 fi
 
+php56_path="$BREW_HOME/opt/php@5.6"
+if [ -d $php56_path/bin ] ; then
+  export PATH="$php56_path/bin:$PATH"
+fi
+if [ -d $php56_path/sbin ] ; then
+  export PATH="$php56_path/sbin:$PATH"
+fi
+
+sqlite3_path="$BREW_HOME/opt/sqlite"
+if [ -d $sqlite3_path/bin ] ; then
+  export PATH="$sqlite3_path/bin:$PATH"
+fi
 # FASD (https://github.com/clvv/fasd)
 # eval "$(fasd --init auto)"
 
