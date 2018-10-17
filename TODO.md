@@ -41,6 +41,7 @@ Vim
 - optimiser mon usage de FZF <https://github.com/junegunn/fzf#vim-plugin>
 - <del>passer à [lightline](https://github.com/itchyny/lightline.vim) : plus léger, plus simple que Airline</del>
   pas génial finalement (besoin d'un autre plugin pour la barre des buffers
+- utiliser [taskpaper.vim](https://github.com/davidoc/taskpaper.vim) pour mes TODOs
 
 Writing Env
 -----------
