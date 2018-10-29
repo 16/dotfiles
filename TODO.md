@@ -46,8 +46,6 @@ Vim
 Writing Env
 -----------
 
-- installer <https://github.com/itspriddle/vim-marked> pour lancer facilement Marked pour la preview
-  des fichiers markdown
 - Tester <https://github.com/amix/vim-zenroom2>
 
 

@@ -17,6 +17,7 @@ Plug 'Lokaltog/neoranger', { 'branch': 'develop' } " using Ranger as a file draw
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
+Plug 'itspriddle/vim-marked'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
 Plug 'scrooloose/nerdcommenter'
@@ -180,6 +181,9 @@ endif
 
 " Writing environment
 " -------------------
+
+" On OSX, use Marked version 1 to preview markdown
+let g:marked_app = "Marked"
 
 " open .txt files as markdown
 autocmd BufRead *.txt set ft=markdown
