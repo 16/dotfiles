@@ -18,6 +18,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 Plug 'itspriddle/vim-marked'
+Plug 'davidoc/taskpaper.vim'
+Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
 Plug 'scrooloose/nerdcommenter'
@@ -223,6 +225,8 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" Autosave taskpaper files
+autocmd filetype taskpaper let g:auto_save = 1
 
 "
 " Deoplete Omni Completion
