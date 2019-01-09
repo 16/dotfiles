@@ -228,6 +228,12 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " Autosave taskpaper files
 autocmd filetype taskpaper let g:auto_save = 1
 
+" Automatically causes vim to reload taskpaper files which have been written on disk but
+" not modified in the buffer since the last write from vim.
+" This enables a file open in vim to be edited using another application and saved.
+" See https://vi.stackexchange.com/a/14833
+autocmd filetype taskpaper set autoread | au CursorHold * checktime | call feedkeys("lh")
+
 "
 " Deoplete Omni Completion
 " ========================
