@@ -82,6 +82,9 @@ fi
 function new-tmux-from-dir-name { tmux new-session -As `basename $PWD` } 
 alias tnew="new-tmux-from-dir-name"
 
+# Alias to direct edit of my main taskpaper todo file
+alias todo="nvim $HOME/OwnCloud/Notes/todo.taskpaper"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
