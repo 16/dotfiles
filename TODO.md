@@ -42,6 +42,8 @@ Vim
 - <del>passer à [lightline](https://github.com/itchyny/lightline.vim) : plus léger, plus simple que Airline</del>
   pas génial finalement (besoin d'un autre plugin pour la barre des buffers
 - utiliser [taskpaper.vim](https://github.com/davidoc/taskpaper.vim) pour mes TODOs
+- [Search replace text in the entire project with VIM](https://medium.com/@diegoy_kuri/search-replace-project-with-vim-a626ea8976b8):
+  à tester, c'est tellement simple !
 
 Writing Env
 -----------

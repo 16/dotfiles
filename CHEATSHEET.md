@@ -18,6 +18,14 @@ Vim
 
     <leader>h 
 
+" Move to previous opened buffer
+
+    <C-^>
+
+" will switch to buffer number 5
+    
+    5<C-^>
+
 " Zoom in/out current split (with maximizer plugin)
 
     <leader>m

@@ -28,7 +28,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+" Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim'
 Plug 'lepture/vim-jinja' " for nunjucks templates
 Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
@@ -130,6 +131,9 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_section_x = '%{PencilMode()}'
+
+" It's useful to show the buffer number in the status line.
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " NeoVim specifics
 " ----------------
