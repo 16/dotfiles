@@ -85,6 +85,42 @@ alias tnew="new-tmux-from-dir-name"
 # Alias to direct edit of my main taskpaper todo file
 alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
 
+# -- FZF --
+#
+#
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
 
+# Fuzzy find a file, with colorful preview, then once selected edit it
+# Source : https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
+fzf_find_edit() {
+    local file=$(
+      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      )
+    if [[ -n $file ]]; then
+        $EDITOR $file
+    fi
+}
+alias ffe='fzf_find_edit'
+
+# Fuzzy find a file, with colorful preview, that contains the supplied term, then once selected edit it
+fzf_grep_edit(){
+    if [[ $# == 0 ]]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+    local match=$(
+      rg --color=never --line-number "$1" |
+        fzf --no-multi --delimiter : \
+            --preview "bat --color=always --line-range {2}: {1}"
+      )
+    local file=$(echo "$match" | cut -d':' -f1)
+    if [[ -n $file ]]; then
+        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
+    fi
+}
+
+alias fge='fzf_grep_edit'
+
+# -- iTERM --
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

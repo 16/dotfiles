@@ -165,7 +165,7 @@ nmap <leader>h :bprevious<CR>
 map <leader>pp :setlocal paste!<cr>
 
 " FZF
-nnoremap <leader>f :FZF<cr>
+nnoremap <leader>f :FZF --preview=bat\ --color=always\ --line-range\ :200\ {}<cr>
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>s :Rg<cr>
