@@ -121,6 +121,9 @@ set wrap
 set linebreak
 set nolist
 
+" Indent Yaml files with 2 spaces instead of \t
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " AIRLINE
 " -------
 set noshowmode " because mode info is shown in Airline
