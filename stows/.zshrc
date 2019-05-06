@@ -122,5 +122,8 @@ fzf_grep_edit(){
 
 alias fge='fzf_grep_edit'
 
+# Weather from wttr.in
+alias meteo='curl fr.wttr.in/Rennes'
+
 # -- iTERM --
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

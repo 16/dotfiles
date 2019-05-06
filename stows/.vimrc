@@ -33,6 +33,7 @@ Plug 'mattn/emmet-vim'
 Plug 'lepture/vim-jinja' " for nunjucks templates
 Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
+Plug 'tpope/vim-rails'
 call plug#end()
 
 
