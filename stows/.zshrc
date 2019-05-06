@@ -33,12 +33,6 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug load
 
-# Personnal aliases
-alias apgs="apg -m 8 -x 12 -s"
-alias ll="exa -l --git"
-alias la="exa -la --git"
-alias lt="exa -T -L 2"
-
 # Default User
 # You'll want to add in a DEFAULT_USER, set it to whatever your system username is.
 # You'll want to do this so that you agnoster doesn't display username@yourmachine 
@@ -70,26 +64,26 @@ sqlite3_path="$BREW_HOME/opt/sqlite"
 if [ -d $sqlite3_path/bin ] ; then
   export PATH="$sqlite3_path/bin:$PATH"
 fi
-# FASD (https://github.com/clvv/fasd)
-# eval "$(fasd --init auto)"
 
-# -- TMUX --
-# For fixing colors with tmux
-# export TERM="screen-256color"
-# alias tmux="tmux -2"
+# iTERM
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# for Tmux projects
-function new-tmux-from-dir-name { tmux new-session -As `basename $PWD` } 
-alias tnew="new-tmux-from-dir-name"
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
 
+# -- ALIASES --
+
+alias ll="exa -l --git"
+alias la="exa -la --git"
+alias lt="exa -T -L 2"
+alias apgs="apg -m 8 -x 12 -s"
 # Alias to direct edit of my main taskpaper todo file
 alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
 
-# -- FZF --
-#
-#
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+# for Tmux projects
+function new-tmux-from-dir-name { tmux new-session -As ${1:-`basename $PWD`} } 
+alias tnew="new-tmux-from-dir-name"
 
 # Fuzzy find a file, with colorful preview, then once selected edit it
 # Source : https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
@@ -119,11 +113,8 @@ fzf_grep_edit(){
         $EDITOR $file +$(echo "$match" | cut -d':' -f2)
     fi
 }
-
 alias fge='fzf_grep_edit'
 
 # Weather from wttr.in
 alias meteo='curl fr.wttr.in/Rennes'
 
-# -- iTERM --
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
