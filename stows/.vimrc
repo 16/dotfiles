@@ -13,7 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator' 
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fzf installed with Homebrew
-Plug 'Lokaltog/neoranger', { 'branch': 'develop' } " using Ranger as a file drawer
+Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
@@ -61,6 +61,7 @@ else
   " ----------------------
   if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
+    set t_Co=256
     source ~/.vimrc_background
     let airline_theme='base16'
   endif
@@ -173,7 +174,8 @@ nnoremap <leader>f :FZF --preview=bat\ --color=always\ --line-range\ :200\ {}<cr
 nnoremap <leader>g :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>s :Rg<cr>
-
+" Open ranger at current file with "-"
+nnoremap <silent> - :RangerCurrentFile<CR>
 " Open ranger in current working directory
 nnoremap <silent> <Leader>r :Ranger<CR>
 
