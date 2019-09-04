@@ -6,19 +6,19 @@
 DOTFILES_DIR=${0:a:h}
 
 # Install zplug for zsh
-export ZPLUG_HOME=/usr/local/opt/zplug
-if [ ! -d "$ZPLUG_HOME" ]; then
-	echo Installing Zplug
-  brew update
-  brew install zplug
-fi
+#export ZPLUG_HOME=/usr/local/opt/zplug
+#if [ ! -d "$ZPLUG_HOME" ]; then
+#	echo Installing Zplug
+#  brew update
+#  brew install zplug
+#fi
 
 # Install Tmux Plugin Manager per https://github.com/tmux-plugins/tpm
 # (Still need to install your plug-ins one time with Ctrl-B I)
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-	echo Installing Tmux Plugin Manager
-	git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-fi
+#if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+#	echo Installing Tmux Plugin Manager
+#	git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+#fi
 
 # Install vim-plug
 if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
@@ -28,19 +28,19 @@ if [ ! -e "$HOME/.local/share/nvim/site/autoload/plug.vim" ]; then
 fi
 
 # Install scripts like tmux-vim-select-pane
-echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
-stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
+#echo Installing scripts like tmux-vim-select-pane in ~/opt/bin.
+#stow --override=".*" --restow --target="$HOME/opt/bin" --dir="$DOTFILES_DIR" bin
 
 # Make a symlink in $HOME to each of the .dotfiles in stows/
 echo Installing dotfiles.
 stow --override=".*" --restow --target=$HOME --dir="$DOTFILES_DIR" stows
 
-if [ -d "$DOTFILES_DIR/local_$(hostname -s)" ]; then
-	echo "Using local overrides ($DOTFILES_DIR/local_$(hostname -s))"
-	stow --override=".*" --restow --target=$HOME --dir="$DOTFILES_DIR" "local_$(hostname -s)"
-else
-	echo "No local overrides found ($DOTFILES_DIR/local_$(hostname -s))"
-fi
+#if [ -d "$DOTFILES_DIR/local_$(hostname -s)" ]; then
+#	echo "Using local overrides ($DOTFILES_DIR/local_$(hostname -s))"
+#	stow --override=".*" --restow --target=$HOME --dir="$DOTFILES_DIR" "local_$(hostname -s)"
+#else
+#	echo "No local overrides found ($DOTFILES_DIR/local_$(hostname -s))"
+#fi
 
 # In order to use vim existing config files with NeoVim
 echo Create symlinks in order to use existing vim config files with NeoVim 
@@ -56,7 +56,7 @@ if hash nvim 2>/dev/null; then
   fi
 fi
 
-echo Create a symlink to base16-shell
-if [ ! -d "$HOME/.config/base16-shell" ]; then
-  ln -s "$DOTFILES_DIR/base16-shell" "$HOME/.config/base16-shell"
-fi
+#echo Create a symlink to base16-shell
+#if [ ! -d "$HOME/.config/base16-shell" ]; then
+#  ln -s "$DOTFILES_DIR/base16-shell" "$HOME/.config/base16-shell"
+#fi

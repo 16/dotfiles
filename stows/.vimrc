@@ -6,14 +6,18 @@ set nocompatible
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible', !has('nvim') ? {} : { 'on': [] }
 Plug 'rstacruz/vim-opinion'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox', ($TERM_PROGRAM == 'Apple_Terminal') ? {} : { 'on': [] }
+" Plug 'chriskempson/base16-vim'
+" Plug 'morhetz/gruvbox', ($TERM_PROGRAM == 'Apple_Terminal') ? {} : { 'on': [] }
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator' 
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fzf installed with Homebrew
 Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
+" As described in /usr/share/doc/fzf/README.Debian
+" The most straightforward way to use FZF is to append the following line
+source /usr/share/doc/fzf/examples/fzf.vim
+Plug 'junegunn/fzf.vim' " Add extended support for FZF (search in git files...)
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
@@ -30,6 +34,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'ap/vim-css-color'
 " Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-liquid'
 Plug 'lepture/vim-jinja' " for nunjucks templates
 Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
@@ -51,21 +56,11 @@ set termencoding=utf-8
 " Highlight current line
 set cursorline
 
-if ($TERM_PROGRAM == 'Apple_Terminal')
-  " for osx terminal.app
-  colorscheme gruvbox
-  set background=dark
-  let airline_theme='gruvbox'
-else
-  " BASE16 Color switching
-  " ----------------------
-  if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    set t_Co=256
-    source ~/.vimrc_background
-    let airline_theme='base16'
-  endif
-endif
+" Gruvbox theme
+colorscheme gruvbox
+set background=dark
+let airline_theme='gruvbox'
+" See https://github.com/morhetz/gruvbox/wiki/Configuration for more options
 
 " SPLITS
 " ------
@@ -145,10 +140,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 if has('nvim')
   let g:python_host_prog = '/usr/local/bin/python'
 endif
-
-" FZF
-" ---
-set rtp+=/usr/local/opt/fzf
 
 " LEADER mappings
 " ---------------
