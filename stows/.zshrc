@@ -82,6 +82,8 @@ fi
 alias ll="exa -l --git"
 alias la="exa -la --git"
 alias lt="exa -T -L 2"
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
 alias apgs="apg -m 8 -x 12 -s"
 # Alias to direct edit of my main taskpaper todo file
 alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
