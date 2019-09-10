@@ -146,6 +146,10 @@ endif
 
 let mapleader = ","
 
+" copy/paste to system clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+
 " Delete current buffer without closing the window
 nmap <silent> <leader>q :bp\|bd #<CR>
 
