@@ -19,6 +19,7 @@ Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
 source /usr/share/doc/fzf/examples/fzf.vim
 Plug 'junegunn/fzf.vim' " Add extended support for FZF (search in git files...)
 Plug 'jiangmiao/auto-pairs'
+Plug 'konfekt/fastfold'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
