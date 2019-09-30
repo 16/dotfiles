@@ -86,7 +86,9 @@ alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias apgs="apg -m 8 -x 12 -s"
 # Alias to direct edit of my main taskpaper todo file
-alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
+# alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
+# Find conflicted copies in NextCloud folder
+alias conflicted='cd ~/Nextcloud && find -name "*conflicted*"'
 
 # for Tmux projects
 function new-tmux-from-dir-name { tmux new-session -As ${1:-`basename $PWD`} } 
