@@ -25,6 +25,7 @@ Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 Plug 'itspriddle/vim-marked'
 Plug 'davidoc/taskpaper.vim'
+Plug 'alok/notational-fzf-vim'
 Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
@@ -170,6 +171,8 @@ nmap <leader>h :bprevious<CR>
 " (Use C-c to exit paste mode in insert mode)
 map <leader>pp :setlocal paste!<cr>
 
+" Terminal
+nnoremap <leader>t :new term://zsh <bar> set nonumber <cr>
 " FZF
 nnoremap <leader>f :FZF --preview=bat\ --color=always\ --line-range\ :200\ {}<cr>
 nnoremap <leader>g :GFiles<cr>
@@ -183,6 +186,9 @@ nnoremap <silent> <Leader>r :Ranger<CR>
 
 " Goyo
 nnoremap <silent> <leader>z :Goyo<cr>
+
+" notational FZF
+nnoremap <silent> <leader>n :NV<CR>
 
 " Tabularize
 if exists(":Tabularize")
@@ -245,6 +251,10 @@ autocmd filetype taskpaper let g:auto_save = 1
 " See https://vi.stackexchange.com/a/14833
 autocmd filetype taskpaper set autoread | au CursorHold * checktime | call feedkeys("lh")
 
+" Notational FZF
+let g:nv_search_paths = ['~/Nextcloud/Notes']
+let g:nv_default_extension = '.md'
+
 "
 " Deoplete Omni Completion
 " ========================
@@ -262,7 +272,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType html,markdown,liquid setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
