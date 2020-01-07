@@ -24,6 +24,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 Plug 'itspriddle/vim-marked'
+Plug 'jkramer/vim-checkbox'
 Plug 'davidoc/taskpaper.vim'
 Plug 'alok/notational-fzf-vim'
 Plug '907th/vim-auto-save'
