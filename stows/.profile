@@ -26,4 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes cargo (rust) binaries
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# set EDITOR
+EDITOR="/usr/bin/nvim"
