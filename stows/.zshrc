@@ -127,3 +127,7 @@ alias fge='fzf_grep_edit'
 # Weather from wttr.in
 alias meteo='curl fr.wttr.in/Rennes'
 
+# Open Street Map in ascii
+alias map='telnet mapscii.me'
+
+source /home/fabrice/.config/broot/launcher/bash/br

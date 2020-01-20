@@ -38,6 +38,7 @@ Mieux l'exploiter avec FZF et dans le shell en général
 Vim
 ---
 
+- passer à [coc](https://github.com/neoclide/coc.nvim) : Intellisense engine for vim8 & neovim, full language server protocol support as VSCode. Remplace CTgas, mon autocompletion actuelle etc :) https://blog.lourenci.com/my-favorite-vim-plugins/
 - optimiser mon usage de FZF <https://github.com/junegunn/fzf#vim-plugin>
 - <del>passer à [lightline](https://github.com/itchyny/lightline.vim) : plus léger, plus simple que Airline</del>
   pas génial finalement (besoin d'un autre plugin pour la barre des buffers
