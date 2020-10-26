@@ -42,9 +42,8 @@ source "$HOME/.local/share/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 # <http://szarapka.com/zshohmyzsh/>
 DEFAULT_USER="fabrice"
 
-# Enable bash completion compatibility
-autoload bashcompinit
-bashcompinit
+# load functions from .zfunc folder
+fpath=(~/.zfunc $fpath)
 
 # Other ZSH completions
 source ~/.tldr.complete
@@ -84,6 +83,8 @@ alias la="exa -la --git"
 alias lt="exa -T -L 2"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
+alias e="nvim"
+alias o="xdg-open"
 alias apgs="apg -m 8 -x 12 -s"
 # Alias to direct edit of my main taskpaper todo file
 # alias todo="cd $HOME/ownCloud/Notes && nvim *.taskpaper"
@@ -130,4 +131,25 @@ alias meteo='curl fr.wttr.in/Rennes'
 # Open Street Map in ascii
 alias map='telnet mapscii.me'
 
+# protonvpn
+alias pvpn='sudo protonvpn'
+
 source /home/fabrice/.config/broot/launcher/bash/br
+
+# required for cmus
+export XDG_CONFIG_HOME=~/.config
+
+
+# Enable bash completion compatibility
+autoload bashcompinit && bashcompinit
+
+# reload completion
+autoload -U compinit && compinit
+
+# Startup : launch neofetch or screenfetch
+#
+# screenfetch
+#
+# or better, simple, non bloated, written in POSIX sh
+# [pfetch](https://github.com/dylanaraps/pfetch)
+PF_INFO="ascii title os host kernel uptime pkgs memory de shell editor palette" pfetch
