@@ -38,6 +38,10 @@ Mieux l'exploiter avec FZF et dans le shell en général
 Vim
 ---
 
+- <https://github.com/Blacksuan19/init.nvim> : d'excellentes choses à prendre !
+  - notamment floating window + borders + file previews on fzf
+  - utilisation de mdv pour preview des fichiers markdown
+- Pour afficher mes raccourcis clavier : <https://github.com/liuchengxu/vim-which-key>
 - passer à [coc](https://github.com/neoclide/coc.nvim) : Intellisense engine for vim8 & neovim, full language server protocol support as VSCode. Remplace CTgas, mon autocompletion actuelle etc :) https://blog.lourenci.com/my-favorite-vim-plugins/
 - optimiser mon usage de FZF <https://github.com/junegunn/fzf#vim-plugin>
 - <del>passer à [lightline](https://github.com/itchyny/lightline.vim) : plus léger, plus simple que Airline</del>
