@@ -11,6 +11,7 @@ Plug 'rstacruz/vim-opinion'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator' 
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
@@ -25,6 +26,7 @@ Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 Plug 'jkramer/vim-checkbox'
 Plug 'davidoc/taskpaper.vim'
+Plug 'unfog-io/unfog-vim'
 Plug 'alok/notational-fzf-vim'
 Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -38,6 +40,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'ap/vim-css-color'
 " Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim'
@@ -52,18 +55,57 @@ call plug#end()
 " BASICS
 " ------
 " Making the clipboard work between iTerm2, and vim
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Explicitly set encoding
 if !has('nvim')
-  set encoding=utf-8
+	set encoding=utf-8
 endif
 set termencoding=utf-8
 
 " Highlight current line
 set cursorline
 
+
+" TODO: improve tabs and other things
+"       with https://github.com/gerardbm/vimrc/blob/master/vim/.vimrc
+"       https://dmitryfrank.com/articles/indent_with_tabs_align_with_spaces
+" Enable autoindent & smartindent
+" set autoindent
+" set smartindent
+
+" Use tabs, no spaces
+" set noexpandtab
+
+" Be smart when using tabs
+" set smarttab
+
+" Tab size (in spaces)
+" set shiftwidth=2
+" set tabstop=2
+"
+" " Remap indentation
+" nnoremap <TAB> >>
+" nnoremap <S-TAB> <<
+"
+" vnoremap <TAB> >gv
+" vnoremap <S-TAB> <gv
+"
+" inoremap <TAB> <C-i>
+" inoremap <S-TAB> <C-d>
+"
+" " Don't show tabs
+set list
+"
+let g:f6msg = 'Toggle list.'
+nnoremap <F6> :set list!<CR>:echo g:f6msg<CR>
+"
+" " Show tabs and end-of-lines
+set listchars=tab:│\ ,trail:¬
+
 " Gruvbox theme
+set t_Co=256
+let g:gruvbox_italic=1
 colorscheme gruvbox
 set background=dark
 let airline_theme='gruvbox'
@@ -83,7 +125,7 @@ endif
 
 " To resize vim splits in tmux
 if !has('nvim')
-  set ttymouse=xterm2
+	set ttymouse=xterm2
 endif
 
 " Zooming with Maximizer
@@ -94,7 +136,9 @@ nmap <silent><Leader>m :MaximizerToggle<CR>
 " -----------------
 " (NeoVim)
 " Source: <https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9>
-tnoremap <Leader><ESC> <C-\><C-n>
+" tnoremap <Leader><ESC> <C-\><C-n>
+" or https://michaelabrahamsen.com/posts/replace-tmux-with-neovim/
+tnoremap <ESC><ESC> <C-\><C-n>
 
 " Window navigation function
 " Make ctrl-h/j/k/l move between windows and auto-insert in terminals
@@ -123,7 +167,6 @@ endfor
 set formatoptions=1
 set wrap
 set linebreak
-set nolist
 
 " Indent Yaml files with 2 spaces instead of \t
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -145,7 +188,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " NeoVim specifics
 " ----------------
 if has('nvim')
-  let g:python_host_prog = '/usr/local/bin/python'
+  let g:python_host_prog = '/usr/bin/python'
+  let g:python3_host_prog = '/usr/bin/python3' 
 endif
 
 " LEADER mappings
@@ -154,8 +198,8 @@ endif
 let mapleader = ","
 
 " copy/paste to system clipboard
-noremap <Leader>y "*y
-noremap <Leader>p "*p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 " Delete current buffer without closing the window
 nmap <silent> <leader>q :bp\|bd #<CR>
@@ -202,22 +246,33 @@ endif
 " -------------------
 
 " On OSX, use Marked version 1 to preview markdown
-let g:marked_app = "Marked"
+" let g:marked_app = "Marked"
 
 " open .txt files as markdown
 autocmd BufRead *.txt set ft=markdown
+autocmd BufRead *.md set ft=markdown
+" Highlight the line the cursor is on
+" See https://secluded.site/vim-as-a-markdown-editor/
+autocmd FileType markdown set cursorline
+" Set spell check to French
+" autocmd FileType markdown setlocal spell spelllang=fr
 
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "extra"]
-let g:pandoc#filetypes#pandoc_markdown = 0
-" let g:pandoc#syntax#conceal#use = 0
+" let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#syntax#conceal#use = 1
+let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#modules#disabled = ["bibliographies", "spell"]
+let g:pandoc#spell#default_langs = ['fr']
+" TODO
+" let loaded_spellfile_plugin = 1
+" let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 let g:pandoc#keyboard#sections#header_style = 's' " enables setext headers for level 1 and 2 headers
 
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
+  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType text            call pencil#init()
 augroup END
 let g:pencil#textwidth = 79
 
@@ -242,6 +297,38 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+
+" PDF preview
+" https://dev.to/l04db4l4nc3r/vim-to-the-rescue-pdf-preview-2e10
+
+" Call compile
+function! Preview()
+  :call Compile()
+  execute "! zathura /tmp/op.pdf &"
+endfunction
+
+" [1] Get the extension of the file
+" [2] Apply appropriate compilation command
+" [3] Save PDF as /tmp/op.pdf
+function! Compile()
+  let extension = expand('%:e')
+  if extension == "ms"
+    execute "! groff -ms % -T pdf > /tmp/op.pdf"
+  elseif extension == "tex"
+    execute "! pandoc -f latex -t latex % -o /tmp/op.pdf"
+  elseif extension == "md"
+    execute "! pandoc '%' -s -o /tmp/op.pdf --pdf-engine=xelatex "
+  endif
+endfunction
+
+noremap <leader>m :call Preview()<CR><CR><CR>
+noremap <leader>c :call Compile()<CR><CR>
+
+
+
+" FREEHAND mode to edit my asciis !
+" fron https://keleshev.com/my-book-writing-setup/
+" set virtualedit=all
 " Autosave taskpaper files
 autocmd filetype taskpaper let g:auto_save = 1
 
@@ -260,9 +347,9 @@ let g:nv_default_extension = '.md'
 " ========================
 
 let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
+" if !exists('g:deoplete#omni#input_patterns')
+"   let g:deoplete#omni#input_patterns = {}
+" endif
 " let g:deoplete#disable_auto_complete = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
