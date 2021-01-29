@@ -48,9 +48,6 @@ fpath=(~/.zfunc $fpath)
 # Other ZSH completions
 source ~/.tldr.complete
 
-# FZF completions
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-
 # load rbenv if available
 if which rbenv &>/dev/null ; then
   eval "$(rbenv init - --no-rehash)"
@@ -72,10 +69,12 @@ fi
 # # iTERM
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # 
-# # FZF
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
-# 
+
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+
 # -- ALIASES --
 
 alias ll="exa -l --git"

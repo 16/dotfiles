@@ -29,5 +29,8 @@ fi
 # set PATH so it includes cargo (rust) binaries
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# set PATH so it includes flatpak aliases (ex: com.skype.Client)
+export PATH="$PATH:/var/lib/flatpak/exports/bin"
+
 # set EDITOR
 EDITOR="/usr/bin/nvim"

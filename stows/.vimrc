@@ -17,7 +17,8 @@ Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
 " As described in /usr/share/doc/fzf/README.Debian
 " The most straightforward way to use FZF is to append the following line
-source /usr/share/doc/fzf/examples/fzf.vim
+" source /usr/share/doc/fzf/examples/fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Instal its own binary… apt package is not up to date…
 Plug 'junegunn/fzf.vim' " Add extended support for FZF (search in git files...)
 Plug 'jiangmiao/auto-pairs'
 Plug 'konfekt/fastfold'
@@ -255,17 +256,14 @@ autocmd BufRead *.md set ft=markdown
 " See https://secluded.site/vim-as-a-markdown-editor/
 autocmd FileType markdown set cursorline
 " Set spell check to French
-" autocmd FileType markdown setlocal spell spelllang=fr
+autocmd FileType markdown setlocal spell spelllang=fr
 
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "extra"]
 " let g:pandoc#filetypes#pandoc_markdown = 0
 let g:pandoc#syntax#conceal#use = 1
-let g:pandoc#syntax#conceal#urls = 1
-let g:pandoc#modules#disabled = ["bibliographies", "spell"]
+let g:pandoc#syntax#conceal#urls = 0
+let g:pandoc#modules#disabled = ["bibliographies"]
 let g:pandoc#spell#default_langs = ['fr']
-" TODO
-" let loaded_spellfile_plugin = 1
-" let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 let g:pandoc#keyboard#sections#header_style = 's' " enables setext headers for level 1 and 2 headers
 
 let g:pencil#wrapModeDefault = 'soft'
@@ -273,6 +271,7 @@ augroup pencil
   autocmd!
   autocmd FileType markdown,mkd,md call pencil#init()
   autocmd FileType text            call pencil#init()
+  autocmd FileType pandoc          call pencil#init()
 augroup END
 let g:pencil#textwidth = 79
 
