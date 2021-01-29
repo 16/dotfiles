@@ -12,8 +12,9 @@
   la = "!git config -l | grep alias | cut -c 7-"
 
   # log
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate 
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)%ad" --decorate --numstat --date=format:'%Y-%m-%d %H:%M:%S'
+  lf = log --format=fuller --graph 
   
   # show modified files in last commit
   last = "!git ll -1"
@@ -30,3 +31,7 @@
   cia = commit -av
   pullr = pull --rebase
 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
