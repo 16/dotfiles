@@ -11,6 +11,9 @@
   # list all aliases
   la = "!git config -l | grep alias | cut -c 7-"
 
+  # list conflicted files
+  lc = "!git diff --name-only --diff-filter=U"
+  
   # log
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate 
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)%ad" --decorate --numstat --date=format:'%Y-%m-%d %H:%M:%S'

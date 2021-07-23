@@ -8,7 +8,12 @@ NValt dans mon shell
   accessible dans le shell, non dépendant de l'éditeur. Privilégier cette approche à celle qui suit.
 - tester <https://github.com/Alok/notational-fzf-vim> pour alternative a nvalt dans vim
 
-    nvim "$(fd --type f | fzf --preview="mdv -x -c 74 {}" --preview-window=right:60%:wrap)"
+
+```
+nvim "$(fd --type f | fzf --preview="mdv -x -c 74 {}" --preview-window=right 60%:wrap)"
+```
+
+
 - utiliser [tmux-vim](https://github.com/sdt/tmux-vim) (create a persistent vim pane within a tmux window)
 
 - <del>`ag` pour la recherche de fichiers <https://statico.github.io/vim3.html></del>

@@ -9,7 +9,8 @@ zplug "modules/completion", from:prezto
 zplug "lukechilds/zsh-better-npm-completion", defer:2
 zplug "plugins/z", from:oh-my-zsh
 zplug "andrewferrier/fzf-z"
-zplug "laurenkt/zsh-vimto"
+# zplug "laurenkt/zsh-vimto"
+zplug "momo-lab/zsh-abbrev-alias"
 # Theme!
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
@@ -73,6 +74,10 @@ fi
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --follow'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
 
 # -- ALIASES --
@@ -131,7 +136,16 @@ alias meteo='curl fr.wttr.in/Rennes'
 alias map='telnet mapscii.me'
 
 # protonvpn
-alias pvpn='sudo protonvpn'
+alias pvpn='protonvpn-cli'
+
+# taskell
+alias tasks='taskell ~/Nextcloud/taskell.md'
+
+# affiche de mon fichier d'aide perso
+alias help='bat ~/Nextcloud/help.md -p'
+
+# docker-compose
+abbrev-alias dcc='sudo docker-compose'
 
 source /home/fabrice/.config/broot/launcher/bash/br
 

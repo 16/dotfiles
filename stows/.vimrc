@@ -11,8 +11,8 @@ Plug 'rstacruz/vim-opinion'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-Plug 'christoomey/vim-tmux-navigator' 
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'christoomey/vim-tmux-navigator'
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
 " As described in /usr/share/doc/fzf/README.Debian
@@ -21,6 +21,9 @@ Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Instal its own binary… apt package is not up to date…
 Plug 'junegunn/fzf.vim' " Add extended support for FZF (search in git files...)
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'konfekt/fastfold'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
@@ -41,7 +44,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'pandoc.markdown', 'vim-plug']}
+Plug 'elzr/vim-json'
 Plug 'ap/vim-css-color'
 " Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim'
@@ -50,6 +54,7 @@ Plug 'lepture/vim-jinja' " for nunjucks templates
 Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'tpope/vim-rails'
+Plug 'https://framagit.org/etnadji/vim-epub'
 call plug#end()
 
 
@@ -98,7 +103,7 @@ set cursorline
 " " Don't show tabs
 set list
 "
-let g:f6msg = 'Toggle list.'
+let g:f6msg = 'Toggle hidden characters (:set list / :set nolist).'
 nnoremap <F6> :set list!<CR>:echo g:f6msg<CR>
 "
 " " Show tabs and end-of-lines
@@ -131,7 +136,10 @@ endif
 
 " Zooming with Maximizer
 let g:maximizer_set_default_mapping = 0
-nmap <silent><Leader>m :MaximizerToggle<CR>
+nmap <silent><Leader>z :MaximizerToggle<CR>
+nnoremap <silent><Leader>z :MaximizerToggle<CR>
+vnoremap <silent><Leader>z :MaximizerToggle<CR>
+inoremap <silent><Leader>z <C-o>:MaximizerToggle<CR>
 
 " Terminal settings
 " -----------------
@@ -162,6 +170,10 @@ endfunc
 for dir in ["h", "j", "l", "k"]
   call s:mapMoveToWindowInDirection(dir)
 endfor
+
+" TODO ?
+"   https://github.com/jwilm/i3-vim-focus
+"   Allows i3 direction keys to control vim splits and i3 windows seamlessly
 
 " SOFT WRAP
 " ---------
@@ -230,7 +242,7 @@ nnoremap <silent> <Leader>r :Ranger<CR>
 
 
 " Goyo
-nnoremap <silent> <leader>z :Goyo<cr>
+nnoremap <silent> <leader>zz :Goyo<cr>
 
 " notational FZF
 nnoremap <silent> <leader>n :NV<CR>
@@ -245,6 +257,13 @@ endif
 
 " Writing environment
 " -------------------
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+" Disable quote concealing in JSON files
+autocmd Filetype json let g:vim_json_syntax_conceal = 0
 
 " On OSX, use Marked version 1 to preview markdown
 " let g:marked_app = "Marked"
@@ -338,7 +357,7 @@ autocmd filetype taskpaper let g:auto_save = 1
 autocmd filetype taskpaper set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 " Notational FZF
-let g:nv_search_paths = ['~/Nextcloud/Notes']
+let g:nv_search_paths = ['~/Nextcloud/Notes', '~/Nextcloud/Notes/projets', './NOTES.md', './README.md', './docs']
 let g:nv_default_extension = '.md'
 
 "
@@ -371,23 +390,18 @@ augroup end
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-s>     <Plug>(neosnippet_expand_or_jump)
+smap <C-s>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-s>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
+" imap <expr><TAB>
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "
 " NERD Commenter options
