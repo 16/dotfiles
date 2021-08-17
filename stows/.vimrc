@@ -6,9 +6,7 @@ set nocompatible
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible', !has('nvim') ? {} : { 'on': [] }
 Plug 'rstacruz/vim-opinion'
-" Plug 'chriskempson/base16-vim'
-" Plug 'morhetz/gruvbox', ($TERM_PROGRAM == 'Apple_Terminal') ? {} : { 'on': [] }
-Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'ryanoasis/vim-devicons'
@@ -110,12 +108,11 @@ nnoremap <F6> :set list!<CR>:echo g:f6msg<CR>
 set listchars=tab:│\ ,trail:¬
 
 " Gruvbox theme
-set t_Co=256
-let g:gruvbox_italic=1
-colorscheme gruvbox
 set background=dark
-let airline_theme='gruvbox'
-" See https://github.com/morhetz/gruvbox/wiki/Configuration for more options
+colorscheme gruvbox8
+let g:gruvbox_italic=1
+let airline_theme='gruvbox8'
+" See https://github.com/lifepillar/vim-gruvbox8/blob/master/doc/gruvbox8.txt for more options
 
 " SPLITS
 " ------
