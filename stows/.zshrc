@@ -79,6 +79,11 @@ export FZF_DEFAULT_COMMAND='fd --type f --follow'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+# Setting gruvbox colors
+export FZF_CTRL_T_OPTS=$FZF_CTRL_T_OPTS'
+  --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
+  --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54
+'
 
 # -- ALIASES --
 
