@@ -142,6 +142,7 @@ alias map='telnet mapscii.me'
 
 # protonvpn
 alias pvpn='protonvpn-cli'
+alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
 
 # taskell
 alias tasks='taskell ~/Nextcloud/taskell.md'
