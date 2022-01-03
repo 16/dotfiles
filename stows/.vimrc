@@ -27,14 +27,16 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 Plug 'reedes/vim-pencil'
 Plug 'jkramer/vim-checkbox'
-Plug 'davidoc/taskpaper.vim'
-Plug 'unfog-io/unfog-vim'
+" Plug 'davidoc/taskpaper.vim'
+Plug 'cweagans/vim-taskpaper'
+" Plug 'unfog-io/unfog-vim'
 Plug 'alok/notational-fzf-vim'
 Plug '907th/vim-auto-save'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fishbullet/deoplete-ruby'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'godlygeek/tabular'
 Plug 'sbdchd/neoformat'
@@ -52,9 +54,9 @@ Plug 'lepture/vim-jinja' " for nunjucks templates
 Plug 'elixir-editors/vim-elixir' " configuration files for Elixir
 Plug 'slashmili/alchemist.vim' " Elixir integration
 Plug 'tpope/vim-rails'
-Plug 'https://framagit.org/etnadji/vim-epub'
+Plug 'rhysd/devdocs.vim'
+" Plug 'https://framagit.org/etnadji/vim-epub'
 call plug#end()
-
 
 " BASICS
 " ------
@@ -107,6 +109,12 @@ nnoremap <F6> :set list!<CR>:echo g:f6msg<CR>
 " " Show tabs and end-of-lines
 set listchars=tab:│\ ,trail:¬
 
+if has('nvim')
+  highlight TermCursor ctermfg=red guifg=red
+  " truecolors (suported by alacritty https://gist.github.com/XVilka/8346728)
+  set termguicolors
+endif
+
 " Gruvbox theme
 set background=dark
 colorscheme gruvbox8
@@ -122,9 +130,6 @@ let airline_theme='gruvbox8'
 set splitbelow
 set splitright
 
-if has('nvim')
-  highlight TermCursor ctermfg=red guifg=red
-endif
 
 " To resize vim splits in tmux
 if !has('nvim')
@@ -198,8 +203,10 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " NeoVim specifics
 " ----------------
 if has('nvim')
-  let g:python_host_prog = '/usr/bin/python'
+  let g:python_host_prog = '/usr/bin/python2.7'
   let g:python3_host_prog = '/usr/bin/python3' 
+  " disable python 2 provider
+  let g:loaded_python_provider = 0
 endif
 
 " LEADER mappings
@@ -216,9 +223,11 @@ nmap <silent> <leader>q :bp\|bd #<CR>
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
+nmap <S-l> :bnext<CR>
 
 " Move to the previous buffer
 nmap <leader>h :bprevious<CR>
+nnoremap <S-h> :bprevious<CR>
 
 " Toggle paste mode on and off
 " (see: http://vimcasts.org/episodes/using-vims-paste-mode-with-the-system-paste-command/)
@@ -226,7 +235,7 @@ nmap <leader>h :bprevious<CR>
 map <leader>pp :setlocal paste!<cr>
 
 " Terminal
-nnoremap <leader>t :new term://zsh <bar> set nonumber <cr>
+" nnoremap <leader>t :new term://zsh <bar> set nonumber <cr>
 " FZF
 nnoremap <leader>f :FZF --preview=bat\ --color=always\ --line-range\ :200\ {}<cr>
 nnoremap <leader>g :GFiles<cr>
@@ -273,6 +282,8 @@ autocmd BufRead *.md set ft=markdown
 autocmd FileType markdown set cursorline
 " Set spell check to French
 autocmd FileType markdown setlocal spell spelllang=fr
+" By default disable spell when opening files. Use `:set spell` to enable.
+au BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * set nospell
 
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "extra"]
 " let g:pandoc#filetypes#pandoc_markdown = 0

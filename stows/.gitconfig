@@ -30,6 +30,7 @@
 
   # shortcuts
   st = status -v
+  ad = add -p
   ci = commit -v
   cia = commit -av
   pullr = pull --rebase

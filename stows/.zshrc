@@ -13,6 +13,7 @@ zplug "andrewferrier/fzf-z"
 zplug "momo-lab/zsh-abbrev-alias"
 # Theme!
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# zplug "sbugzu/gruvbox-zsh", use:gruvbox.zsh-theme, as:theme
 
 # base16
 # zplug "~/.config/base16-shell", use:"*.zsh", from:local
@@ -34,7 +35,9 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug load
 
 # Gruvbox theme
-source "$HOME/.local/share/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+# source "$HOME/.local/share/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+# ZSH_THEME="gruvbox"
+# SOLARIZED_THEME="dark"
 
 # Default User
 # You'll want to add in a DEFAULT_USER, set it to whatever your system username is.
@@ -87,8 +90,8 @@ export FZF_CTRL_T_OPTS=$FZF_CTRL_T_OPTS'
 
 # -- ALIASES --
 
-alias ll="exa -l --git"
-alias la="exa -la --git"
+alias ll="exa -l"
+alias la="exa -la"
 alias lt="exa -T -L 2"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
@@ -147,11 +150,19 @@ alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
 # taskell
 alias tasks='taskell ~/Nextcloud/taskell.md'
 
-# affiche de mon fichier d'aide perso
+# taskpaper todos
+alias todo="cd ~/Nextcloud && e todo.taskpaper -c 'source todo.vim'"
+
+# aide pour vim
+alias learnvim="cd ~/Nextcloud/Documentation/Learn-Vim && e README.md -c 'Goyo'"
+# affiche mon fichier d'aide perso
 alias help='bat ~/Nextcloud/help.md -p'
 
 # docker-compose
 abbrev-alias dcc='sudo docker-compose'
+
+# Utile dans mes projets docker: modification droits fichiers
+abbrev-alias dccf='sudo chown fabrice:fabrice -R . && chmod g+w -R .'
 
 source /home/fabrice/.config/broot/launcher/bash/br
 
