@@ -162,6 +162,7 @@ alias help='bat ~/Markas/help.md -p'
 
 # docker-compose
 abbrev-alias dcc='sudo docker-compose'
+abbrev-alias dccl='sudo docker-compose logs -f --tail=20'
 
 # Utile dans mes projets docker: modification droits fichiers
 abbrev-alias dccf='sudo chown fabrice:fabrice -R . && chmod g+w -R .'
