@@ -670,6 +670,10 @@ exec --no-startup-id $i3-wm.program.3
 # bitwarden menu https://github.com/mattydebie/bitwarden-rofi
 bindsym $mod+p exec --no-startup-id bwmenu
 
+## Launch // Qutebrowser session // <><Ctrl> Enter ##
+# bitwarden menu https://github.com/mattydebie/bitwarden-rofi
+bindsym $mod+ctrl+Return exec --no-startup-id ~/.config/i3/qute-load-session.sh
+
 ## Modify // Keyboard layout // <><Shift> Backspace ##
 set $keyboard_layout Keyboard Layout: (f) French, (e) US English
 mode "$keyboard_layout" {
