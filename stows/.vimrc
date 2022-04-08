@@ -365,7 +365,7 @@ autocmd filetype taskpaper let g:auto_save = 1
 autocmd filetype taskpaper set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 " Notational FZF
-let g:nv_search_paths = ['~/Nextcloud/Notes', '~/Nextcloud/Notes/projets', './NOTES.md', './README.md', './docs']
+let g:nv_search_paths = ['~/Markas/Notes', '~/Markas/Notes/projets', './NOTES.md', './README.md', './docs']
 let g:nv_default_extension = '.md'
 
 "
@@ -398,9 +398,9 @@ augroup end
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-s>     <Plug>(neosnippet_expand_or_jump)
-smap <C-s>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-s>     <Plug>(neosnippet_expand_target)
+" imap <C-s>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-s>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-s>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.

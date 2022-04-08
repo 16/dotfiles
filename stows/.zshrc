@@ -109,15 +109,17 @@ alias tnew="new-tmux-from-dir-name"
 
 # Fuzzy find a file, with colorful preview, then once selected edit it
 # Source : https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
+# Ajout: le || return permet de sortir de fzf en pressant ESC
 fzf_find_edit() {
     local file=$(
-      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      fzf --no-multi --preview 'bat --color=always --line-range :500 {}' || return
       )
     if [[ -n $file ]]; then
         $EDITOR $file
     fi
 }
 alias ffe='fzf_find_edit'
+bindkey -s '^[e' 'ffe^M' # Alt-e
 
 # Fuzzy find a file, with colorful preview, that contains the supplied term, then once selected edit it
 fzf_grep_edit(){
@@ -148,15 +150,15 @@ alias pvpn='protonvpn-cli'
 alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
 
 # taskell
-alias tasks='taskell ~/Nextcloud/taskell.md'
+alias tasks='taskell ~/Markas/taskell.md'
 
 # taskpaper todos
-alias todo="cd ~/Nextcloud && e todo.taskpaper -c 'source todo.vim'"
+alias todo="cd ~/Markas && e todo.taskpaper -c 'source todo.vim'"
 
 # aide pour vim
 alias learnvim="cd ~/Nextcloud/Documentation/Learn-Vim && e README.md -c 'Goyo'"
 # affiche mon fichier d'aide perso
-alias help='bat ~/Nextcloud/help.md -p'
+alias help='bat ~/Markas/help.md -p'
 
 # docker-compose
 abbrev-alias dcc='sudo docker-compose'

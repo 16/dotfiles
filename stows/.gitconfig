@@ -21,6 +21,8 @@
   
   # show modified files in last commit
   last = "!git ll -1"
+  # show modified files names in last commit
+  lastedit = log --pretty=format: --name-only -n 1
   
   # show a diff last commit
   dlast = diff --cached HEAD^
