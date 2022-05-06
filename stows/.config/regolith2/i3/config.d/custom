@@ -1,0 +1,48 @@
+# Load nm-applet to provide auth dialogs for network access
+set_from_resource $i3-wm.program.nm-applet i3-wm.program.nm-applet /usr/bin/nm-applet
+exec --no-startup-id $i3-wm.program.nm-applet
+
+## Launch // BitWarden // <> p ##
+# bitwarden menu https://github.com/mattydebie/bitwarden-rofi
+bindsym $mod+p exec --no-startup-id bwmenu
+
+## Launch // Qutebrowser session // <><Ctrl> Enter ##
+bindsym $mod+ctrl+Return exec --no-startup-id ~/.config/i3/qute-load-session.sh
+
+
+## Modify // Keyboard layout // <><Shift> Backspace ##
+set $keyboard_layout Keyboard Layout: (f) French, (e) US English
+mode "$keyboard_layout" {
+
+  bindsym f exec --no-startup-id setxkbmap -option -option compose:rctrl fr,mode "default"
+  bindsym e exec --no-startup-id setxkbmap -option -option compose:ralt us,mode "default"
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+shift+BackSpace mode "$keyboard_layout"
+
+## Launch // Redshift // <><Ctrl> t ##
+bindsym $mod+ctrl+t mode "$mode_redshift"
+set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)500K, (4)500K, (5)500K
+set $kill_redshift pkill -9 redshift;
+mode "$mode_redshift" {
+    bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 5500:3500", mode "default"
+    bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
+    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
+    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3500", mode "default"
+    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4500", mode "default"
+    bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5500", mode "default"
+
+    # exit mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+
+# bindsym $mod+space exec --no-startup-id ilia -p apps -t $ilia.stylesheet
+# bindsym $mod+Ctrl+space exec --no-startup-id ilia -p windows -t $ilia.stylesheet
+# bindsym $mod+Shift+question exec --no-startup-id ilia -p keybindings -t $ilia.stylesheet
+

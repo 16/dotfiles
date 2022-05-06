@@ -147,6 +147,7 @@ alias map='telnet mapscii.me'
 
 # protonvpn
 alias pvpn='protonvpn-cli'
+# alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
 alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
 
 # taskell
@@ -171,6 +172,11 @@ source /home/fabrice/.config/broot/launcher/bash/br
 
 # required for cmus
 export XDG_CONFIG_HOME=~/.config
+
+# Colorize man with bat
+# https://github.com/sharkdp/bat#man
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 
 
 # Enable bash completion compatibility
