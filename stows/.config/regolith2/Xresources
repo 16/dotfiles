@@ -28,6 +28,7 @@ i3-wm.binding.launcher.window:
 i3-wm.binding.launcher.cmd: 
 i3-wm.binding.help: 
 
+i3-wm.program.files: /usr/bin/x-terminal-emulator -e ranger -r ~/.config/ranger
 ! i3-wm.workspace.01.name:	1:1
 ! i3-wm.workspace.02.name:	2:2
 ! i3-wm.workspace.03.name:	3:3
@@ -68,4 +69,4 @@ i3-wm.client.urgent.color.text:	#ebdbb2
 i3xrocks.label.color:	#ebdbb2
 ! i3xrocks.value.color:	#fabd2f
 i3xrocks.value.color:	#ebdbb2
-
+i3xrocks.weather.location: Rennes,France
