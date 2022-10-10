@@ -42,8 +42,10 @@ Plug 'godlygeek/tabular'
 Plug 'sbdchd/neoformat'
 Plug 'airblade/vim-gitgutter' 
 Plug 'tpope/vim-fugitive'
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+" Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
+" Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'pandoc.markdown', 'vim-plug']}
 Plug 'elzr/vim-json'
 Plug 'ap/vim-css-color'
@@ -118,7 +120,9 @@ endif
 " Gruvbox theme
 set background=dark
 colorscheme gruvbox8
-let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+let g:gruvbox_italics=1
+let g:gruvbox_italicize_strings=1
 let airline_theme='gruvbox8'
 " See https://github.com/lifepillar/vim-gruvbox8/blob/master/doc/gruvbox8.txt for more options
 
@@ -276,17 +280,19 @@ autocmd Filetype json let g:vim_json_syntax_conceal = 0
 
 " open .txt files as markdown
 autocmd BufRead *.txt set ft=markdown
-autocmd BufRead *.md set ft=markdown
+autocmd BufRead *.md set ft=pandoc
+autocmd BufRead *.md set syntax=pandoc
 " Highlight the line the cursor is on
 " See https://secluded.site/vim-as-a-markdown-editor/
 autocmd FileType markdown set cursorline
+autocmd FileType pandoc set cursorline
 " Set spell check to French
 autocmd FileType markdown setlocal spell spelllang=fr
 " By default disable spell when opening files. Use `:set spell` to enable.
 au BufNewFile,BufReadPost,FilterReadPost,FileReadPost  * set nospell
 
 let g:pandoc#filetypes#handled = ["pandoc", "markdown", "extra"]
-" let g:pandoc#filetypes#pandoc_markdown = 0
+let g:pandoc#filetypes#pandoc_markdown = 1
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#conceal#urls = 0
 let g:pandoc#modules#disabled = ["bibliographies"]

@@ -9,6 +9,12 @@ bindsym $mod+p exec --no-startup-id bwmenu
 ## Launch // Qutebrowser session // <><Ctrl> Enter ##
 bindsym $mod+ctrl+Return exec --no-startup-id ~/.config/i3/qute-load-session.sh
 
+## Launch // Basecamp in surf // < ><Ctrl> b ##
+bindsym $mod+ctrl+b exec --no-startup-id surf -m -z 1.2 https://3.basecamp.com/5360728/projects
+
+## Launch // Protonmail in surf // < ><Ctrl> p ##
+bindsym $mod+ctrl+p exec --no-startup-id surf -m -z 1.2 https://mail.proton.me/u/0/inbox
+
 
 ## Modify // Keyboard layout // <><Shift> Backspace ##
 set $keyboard_layout Keyboard Layout: (f) French, (e) US English

@@ -3,8 +3,8 @@
 ! gtk.theme_name: Pop-dark
 gtk.theme_name: Gruvbox-Material-Dark
 gtk.icon_theme_name: Gruvbox-Material-Dark
-! regolith.wallpaper.file: /home/fabrice/Images/Capture\ de\ Only.Lovers.Left.Alive.2013.1080p.BluRay.x264.YIFY.mp4\ -\ 4.png
-regolith.wallpaper.file:  
+regolith.wallpaper.file: /home/fabrice/Images/Capture\ de\ Only.Lovers.Left.Alive.2013.1080p.BluRay.x264.YIFY.mp4\ -\ 4.png
+! regolith.wallpaper.file:
 gnome.wm.theme: Gruvbox-Material-Dark
 rofi.icon-theme: Gruvbox-Material-Dark
 i3-wm.gaps.inner.size: 20
@@ -19,7 +19,7 @@ i3-wm.gaps.smart: on
 i3-wm.program.1: flameshot
 i3-wm.program.2: /usr/libexec/geoclue-2.0/demos/agent
 i3-wm.program.3: redshift
-!i3-wm.bar.font  i3-wm.program.4: killall nm-applet
+i3-wm.program.lock: /usr/bin/i3lock-fancy -p -g -f DejaVu-Sans-Mono-Nerd-Font-Complete
 
 !Fix 20_ilia bindings
 ilia.stylesheet: /home/fabrice/.config/regolith2/ilia.stylesheet
@@ -48,6 +48,7 @@ i3-wm.program.files: /usr/bin/x-terminal-emulator -e ranger -r ~/.config/ranger
 ! i3-wm.workspace.17.name:	17:17
 ! i3-wm.workspace.18.name:	18:18
 ! i3-wm.workspace.19.name:	19:19
+i3-wm.bar.position:	top
 i3-wm.bar.statusline.color:	#282828
 i3-wm.bar.workspace.active.background.color:	#333333
 i3-wm.bar.workspace.active.border.color:	#333333

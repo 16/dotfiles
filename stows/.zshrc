@@ -49,6 +49,12 @@ DEFAULT_USER="fabrice"
 # load functions from .zfunc folder
 fpath=(~/.zfunc $fpath)
 
+# Enable bash completion compatibility
+autoload -U +X  bashcompinit && bashcompinit
+# reload completion
+autoload -U +X compinit && compinit
+# bash completions
+if which pandoc &>/dev/null ; then eval "$(pandoc --bash-completion)"; fi
 # Other ZSH completions
 source ~/.tldr.complete
 
@@ -96,6 +102,7 @@ alias lt="exa -T -L 2"
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias e="nvim"
+alias es="nvim -S Session.vim"
 alias o="xdg-open"
 alias apgs="apg -m 8 -x 12 -s"
 # Alias to direct edit of my main taskpaper todo file
@@ -148,7 +155,7 @@ alias map='telnet mapscii.me'
 # protonvpn
 alias pvpn='protonvpn-cli'
 # alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
-alias pvpninit='pvpn ks --off && pvpn ks --on && pvpn c -f'
+alias pvpninit='pvpn d && pvpn c -f'
 
 # taskell
 alias tasks='taskell ~/Markas/taskell.md'
@@ -179,11 +186,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 
 
-# Enable bash completion compatibility
-autoload bashcompinit && bashcompinit
 
-# reload completion
-autoload -U compinit && compinit
 
 # Startup : launch neofetch or screenfetch
 #
@@ -191,4 +194,10 @@ autoload -U compinit && compinit
 #
 # or better, simple, non bloated, written in POSIX sh
 # [pfetch](https://github.com/dylanaraps/pfetch)
-PF_INFO="ascii title os host kernel uptime pkgs memory de shell editor palette" pfetch
+# PF_INFO="ascii title os host kernel uptime pkgs memory de shell editor palette" pfetch
+$XDG_CONFIG_HOME/i3/cowscript.sh
+
+# Fix bitwarden rofi bug https://github.com/mattydebie/bitwarden-rofi/issues/57
+keyctl purge user bw_session
+keyctl link @u @s
+
