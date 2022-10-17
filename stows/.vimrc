@@ -62,8 +62,10 @@ call plug#end()
 
 " BASICS
 " ------
-" Making the clipboard work between iTerm2, and vim
-" set clipboard=unnamed
+" Making the clipboard work between vim and external programs
+" https://github.com/iggredible/Learn-Vim/blob/bb29f05595bf2433646a5e7766e2c2e43fff9bbe/ch08_registers.md#the-selection-registers
+set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Explicitly set encoding
 if !has('nvim')
