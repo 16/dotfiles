@@ -169,8 +169,8 @@ alias learnvim="cd ~/Nextcloud/Documentation/Learn-Vim && e README.md -c 'Goyo'"
 alias help='bat ~/Markas/help.md -p'
 
 # docker-compose
-abbrev-alias dcc='sudo docker-compose'
-abbrev-alias dccl='sudo docker-compose logs -f --tail=20'
+abbrev-alias dcc='docker-compose'
+abbrev-alias dccl='docker-compose logs -f --tail=20'
 
 # Utile dans mes projets docker: modification droits fichiers
 abbrev-alias dccf='sudo chown fabrice:fabrice -R . && chmod g+w -R .'
@@ -198,6 +198,18 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 $XDG_CONFIG_HOME/i3/cowscript.sh
 
 # Fix bitwarden rofi bug https://github.com/mattydebie/bitwarden-rofi/issues/57
-keyctl purge user bw_session
+keyctl purge user bw_session &> /dev/null
 keyctl link @u @s
 
+#compdef toggl
+_toggl() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
+  compdef _toggl toggl
+fi
+
+# Navi shell
+# https://github.com/denisidoro/navi/blob/master/docs/installation.md#installing-the-shell-widget
+# Use Ctrl+G to launch navi
+eval "$(navi widget zsh)"

@@ -23,6 +23,8 @@
   last = "!git ll -1"
   # show modified files names in last commit
   lastedit = log --pretty=format: --name-only -n 1
+  # new files / untracked files
+  untracked = git ls-files -o  --exclude-standard
   
   # show a diff last commit
   dlast = diff --cached HEAD^
