@@ -1,16 +1,71 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Gruvbox Material Dark
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#define c0black #000000
+! hard
+#define c0hard #1d2021
+! *background: #1d2021
+! medium
+#define c0medium #282828
+#define c0 #282828
+*background: c0
+! soft
+#define c0soft #32302f
+! *background: #32302f
+
+#define c7 #d4be98
+*foreground: c7
+
+#define c7hard #5a524c
+
+! Black + DarkGrey
+*color0:  c0
+*color8:  c0
+! DarkRed + Red
+#define c1 #ea6962
+*color1:  #ea6962
+*color9:  #ea6962
+! DarkGreen + Green
+#define c2 #a9b665
+*color2:  #a9b665
+*color10: #a9b665
+! DarkYellow + Yellow
+#define c3 #e78a4e
+*color3:  #e78a4e
+*color11: #e78a4e
+! DarkBlue + Blue
+#define c4 #7daea3
+*color4:  #7daea3
+*color12: #7daea3
+! DarkMagenta + Magenta
+#define c5 #d3869b
+*color5:  #d3869b
+*color13: #d3869b
+! DarkCyan + Cyan
+#define c6 #89b482
+*color6:  #89b482
+*color14: #89b482
+! LightGrey + White
+*color7:  c7
+*color15: c7
+
 ! i3-wm.bar.font pango:Source Code Pro Medium 11, Material Design Icons 11
 ! i3-wm.bar.font xft:Hack Nerd Font Mono 11
 ! gtk.theme_name: Pop-dark
-gtk.theme_name: Gruvbox-Material-Dark
+gtk.theme_name: Gruvbox-Material-Dark-HIDPI
 gtk.icon_theme_name: Gruvbox-Material-Dark
-regolith.wallpaper.file: /home/fabrice/Images/Capture\ de\ Only.Lovers.Left.Alive.2013.1080p.BluRay.x264.YIFY.mp4\ -\ 5.png
+! regolith.wallpaper.file: /home/fabrice/Images/Capture\ de\ Only.Lovers.Left.Alive.2013.1080p.BluRay.x264.YIFY.mp4\ -\ 6.png
+regolith.wallpaper.file: /home/fabrice/Images/wp11058350.png
 ! regolith.wallpaper.file:
-gnome.wm.theme: Gruvbox-Material-Dark
+! regolith.wallpaper.file: /home/fabrice/Images/minimalism-gruvbox-wallpaper.jpg
+! regolith.wallpaper.file: /home/fabrice/Images/gruvbox-coffee.png
+gnome.wm.theme: Gruvbox-Material-Dark-HIDPI
 rofi.icon-theme: Gruvbox-Material-Dark
-i3-wm.gaps.inner.size: 20
+i3-wm.gaps.inner.size: 0
 i3-wm.gaps.focus_follows_mouse: yes
 i3-wm.workspace.auto_back_and_forth: yes
-i3-wm.window.border.size:	1
+i3-wm.window.border.size: 12
+i3-wm.floatingwindow.border.size: 12
 i3-wm.bar.position:	top
 i3-wm.hide.edge.borders: smart 
 ! i3-wm.bar.trayoutput: none
@@ -29,45 +84,61 @@ i3-wm.binding.launcher.cmd:
 i3-wm.binding.help: 
 
 i3-wm.program.files: /usr/bin/x-terminal-emulator -e ranger -r ~/.config/ranger
-! i3-wm.workspace.01.name:	1:1
+i3-wm.workspace.01.name:	1:<span> </span>1<span> </span>
+i3-wm.workspace.02.name:	2:<span> </span>2<span> </span>
+i3-wm.workspace.03.name:	3:<span> </span>3<span> </span>
+i3-wm.workspace.04.name:	4:<span> </span>4<span> </span>
+i3-wm.workspace.05.name:	5:<span> </span>5<span> </span>
+i3-wm.workspace.06.name:	6:<span> </span>6<span> </span>
+i3-wm.workspace.07.name:	7:<span> </span>7<span> </span>
+i3-wm.workspace.08.name:	8:<span> </span>8<span> </span>
+i3-wm.workspace.09.name:	9:<span> </span>9<span> </span>
+i3-wm.workspace.10.name:	10:<span> </span>10<span> </span>
+i3-wm.workspace.11.name:	11:<span> </span>11<span> </span>
+i3-wm.workspace.12.name:	12:<span> </span>12<span> </span>
+i3-wm.workspace.13.name:	13:<span> </span>13<span> </span>
+i3-wm.workspace.14.name:	14:<span> </span>14<span> </span>
+i3-wm.workspace.15.name:	15:<span> </span>15<span> </span>
+i3-wm.workspace.16.name:	16:<span> </span>16<span> </span>
+i3-wm.workspace.17.name:	17:<span> </span>17<span> </span>
+i3-wm.workspace.18.name:	18:<span> </span>18<span> </span>
+i3-wm.workspace.19.name:	19:<span> </span>19<span> </span>
+! i3-wm.workspace.02.name: 2:<span> </span>2 <span foreground='#ea6962'>♥</span><span> </span>
 ! i3-wm.workspace.02.name:	2:2
-! i3-wm.workspace.03.name:	3:3
-! i3-wm.workspace.04.name:	4:4
-! i3-wm.workspace.05.name:	5:5
-! i3-wm.workspace.06.name:	6:6
-! i3-wm.workspace.07.name:	7:7
-! i3-wm.workspace.08.name:	8:8
-! i3-wm.workspace.09.name:	9:9
-! i3-wm.workspace.10.name:	10:10
-! i3-wm.workspace.11.name:	11:11
-! i3-wm.workspace.12.name:	12:12
-! i3-wm.workspace.13.name:	13:13
-! i3-wm.workspace.14.name:	14:14
-! i3-wm.workspace.15.name:	15:15
-! i3-wm.workspace.16.name:	16:16
-! i3-wm.workspace.17.name:	17:17
-! i3-wm.workspace.18.name:	18:18
-! i3-wm.workspace.19.name:	19:19
-i3-wm.bar.position:	top
-i3-wm.bar.statusline.color:	#282828
-i3-wm.bar.workspace.active.background.color:	#333333
-i3-wm.bar.workspace.active.border.color:	#333333
-i3-wm.bar.workspace.active.text.color:	#665c64
-i3-wm.bar.workspace.focused.background.color:	#333333
-i3-wm.bar.workspace.focused.border.color:	#333333
-i3-wm.bar.workspace.focused.text.color:	#ebdbb2
-i3-wm.bar.workspace.inactive.background.color:	#333333
-i3-wm.bar.workspace.inactive.border.color:	#333333
+
+i3-wm.bar.font: IosevkaTerm Nerd Font Medium 12
+i3-wm.bar.background.color: c0black
+i3-wm.bar.statusline.color: c1
+i3-wm.bar.workspace.active.background.color: c0black
+i3-wm.bar.workspace.active.border.color: c0black
+i3-wm.bar.workspace.active.text.color: #665c64
+i3-wm.bar.workspace.focused.background.color: c0black
+i3-wm.bar.workspace.focused.border.color: c0black
+i3-wm.bar.workspace.focused.text.color:	c5
+i3-wm.bar.workspace.inactive.background.color: c0black
+i3-wm.bar.workspace.inactive.border.color: c0black
 i3-wm.bar.workspace.inactive.text.color:	#665c64
-i3-wm.bar.workspace.urgent.background.color:	#fabd2f
-i3-wm.bar.workspace.urgent.border.color:	#fabd2f
-i3-wm.bar.workspace.urgent.text.color:	#333333
-i3-wm.client.focused.color.child_border:	#665c64
-i3-wm.client.urgent.color.background:	#fb4934
-i3-wm.client.urgent.color.indicator:	#fb4934
-i3-wm.client.urgent.color.text:	#ebdbb2
-! i3xrocks.label.color:	#fabd2f
-i3xrocks.label.color:	#ebdbb2
-! i3xrocks.value.color:	#fabd2f
-i3xrocks.value.color:	#ebdbb2
+i3-wm.bar.workspace.urgent.background.color: c3
+i3-wm.bar.workspace.urgent.border.color: c3
+i3-wm.bar.workspace.urgent.text.color: c0
+
+i3xrocks.label.color: c5
+i3xrocks.value.color:	c7
+i3xrocks.value.font:	IosevkaTerm Nerd Font Medium 12
 i3xrocks.weather.location: Rennes,France
+i3xrocks.label.wired: //
+i3xrocks.label.cpu: <span> </span>
+
+i3-wm.client.focused.color.border: c0
+i3-wm.client.focused.color.child_border:  c0soft
+i3-wm.client.focused.color.indicator: c5
+i3-wm.client.focused_inactive.color.border: c0
+i3-wm.client.focused_inactive.color.child_border: c0
+i3-wm.client.focused_inactive.color.indicator: c0soft
+i3-wm.client.unfocused.color.border: c0
+i3-wm.client.unfocused.color.child_border: c0
+i3-wm.client.unfocused.color.indicator: c0soft
+i3-wm.client.urgent.color.background: c1
+i3-wm.client.urgent.color.indicator: c1
+i3-wm.client.urgent.color.text:	c7
+

@@ -6,10 +6,12 @@ set nocompatible
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible', !has('nvim') ? {} : { 'on': [] }
 Plug 'rstacruz/vim-opinion'
-Plug 'lifepillar/vim-gruvbox8'
+" Plug 'lifepillar/vim-gruvbox8'
+Plug 'sainnhe/gruvbox-material'
+" Plug 'WIttyJudge/gruvbox-material.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " Plug 'christoomey/vim-tmux-navigator'
 Plug 'szw/vim-maximizer' " Maximizes and restores the current window
 Plug 'Lokaltog/neoranger' " using Ranger as a file drawer
@@ -48,8 +50,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'pandoc.markdown', 'vim-plug']}
 Plug 'elzr/vim-json'
-Plug 'ap/vim-css-color'
-" Plug 'mattn/emmet-vim', { 'for': 'html' }
+" Plug 'ap/vim-css-color'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-liquid'
 Plug 'lepture/vim-jinja' " for nunjucks templates
@@ -116,17 +118,28 @@ set listchars=tab:│\ ,trail:¬
 if has('nvim')
   highlight TermCursor ctermfg=red guifg=red
   " truecolors (suported by alacritty https://gist.github.com/XVilka/8346728)
+endif
+
+if has('termguicolors')
   set termguicolors
 endif
 
-" Gruvbox theme
+" Gruvbox material
 set background=dark
-colorscheme gruvbox8
-let g:gruvbox_bold=1
-let g:gruvbox_italics=1
-let g:gruvbox_italicize_strings=1
-let airline_theme='gruvbox8'
-" See https://github.com/lifepillar/vim-gruvbox8/blob/master/doc/gruvbox8.txt for more options
+
+" Set contrast.
+" This configuration option should be placed before `colorscheme gruvbox-material`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:gruvbox_material_background = 'medium'
+
+" For better performance
+let g:gruvbox_material_better_performance = 1
+
+let g:gruvbox_material_enable_italic_comment = 1
+
+let airline_theme='gruvbox_material'
+
+colorscheme gruvbox-material
 
 " SPLITS
 " ------

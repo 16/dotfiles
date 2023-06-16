@@ -32,5 +32,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # set PATH so it includes flatpak aliases (ex: com.skype.Client)
 export PATH="$PATH:/var/lib/flatpak/exports/bin"
 
+# Android SDK
+export PATH="$HOME/opt/platform-tools:$PATH"
+
 # set EDITOR
 EDITOR="/usr/bin/nvim"
